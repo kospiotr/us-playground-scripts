@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing dependencies ..."
+echo "Installing Nomad dependencies ..."
 sudo apt-get update
 sudo apt-get install -y unzip curl jq dnsutils
 
@@ -30,4 +30,4 @@ server {
 }
 EOL
 
-nohup nomad agent -config=/etc/nomad.d/server.hcl 2>&1 > /var/log/nomad.log &
+echo "Nomad installed"
