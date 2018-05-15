@@ -4,7 +4,7 @@ export BRANCH=$1
 
 echo "Current branch is: ${BRANCH}"
 
-bash <(wget -qO- "https://raw.githubusercontent.com/kospiotr/us-playground-scripts/${BRANCH}task-consul-install.sh") > task-consul-install.log
+echo "Installing CONSUL" && bash <(wget -qO- "https://raw.githubusercontent.com/kospiotr/us-playground-scripts/${BRANCH}task-consul-install.sh") > task-consul-install.log
 #bash <(wget -qO- "https://raw.githubusercontent.com/kospiotr/us-playground-scripts/${BRANCH}task-nomad-install.sh") > task-nomad-install.log
 #bash <(wget -qO- "https://raw.githubusercontent.com/kospiotr/us-playground-scripts/${BRANCH}task-linkerd-install.sh") > task-linkerd-install.log
 
