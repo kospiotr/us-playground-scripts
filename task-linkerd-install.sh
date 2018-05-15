@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing dependencies ..."
+echo "Installing Linkerd dependencies ..."
 sudo apt-get update
 sudo apt-get install -y unzip curl jq dnsutils
 
@@ -13,7 +13,7 @@ sudo apt-get update
 echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
 sudo apt-get install -y oracle-java8-set-default
 
-echo "Downloading linkerd"
+echo "Downloading Linkerd"
 LINKERD_VERSION=1.4.0
 curl -sSL https://github.com/linkerd/linkerd/releases/download/${LINKERD_VERSION}/linkerd-${LINKERD_VERSION}.tgz -o linkerd-${LINKERD_VERSION}.tgz
 tar -xzf linkerd-${LINKERD_VERSION}.tgz
