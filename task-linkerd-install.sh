@@ -15,8 +15,8 @@ sudo apt-get install -y oracle-java8-set-default
 
 echo "Downloading Linkerd"
 LINKERD_VERSION=1.4.0
-curl -sSL https://github.com/linkerd/linkerd/releases/download/${LINKERD_VERSION}/linkerd-${LINKERD_VERSION}.tgz -o linkerd-${LINKERD_VERSION}.tgz
-tar -xzf linkerd-${LINKERD_VERSION}.tgz
+curl -sSL https://github.com/linkerd/linkerd/releases/download/${LINKERD_VERSION}/linkerd-${LINKERD_VERSION}.tgz -o /tmp/linkerd-${LINKERD_VERSION}.tgz
+tar -xzf /tmp/linkerd-${LINKERD_VERSION}.tgz -C /tmp
 echo "Running linkerd"
 cat >/tmp/linkerd-config.yaml <<EOL
 admin:
