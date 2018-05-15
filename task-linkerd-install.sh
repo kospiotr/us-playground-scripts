@@ -45,3 +45,5 @@ EOL
 cat >/tmp/linkerd-${LINKERD_VERSION}/disco/prod1 <<EOL
 trade-webservice 8000
 EOL
+
+echo "Linkerd installed"
