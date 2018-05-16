@@ -17,8 +17,11 @@ echo "Downloading Linkerd"
 LINKERD_VERSION=1.4.0
 curl -sSL https://github.com/linkerd/linkerd/releases/download/${LINKERD_VERSION}/linkerd-${LINKERD_VERSION}.tgz -o /tmp/linkerd-${LINKERD_VERSION}.tgz
 tar -xzf /tmp/linkerd-${LINKERD_VERSION}.tgz -C /tmp
-echo "Running linkerd"
-cat >/tmp/linkerd-config.yaml <<EOL
+
+sudo mkdir -p /etc/linkerd.d
+sudo chmod a+w /etc/linkerd.d
+
+cat >/etc/linkerd.d/config.yaml <<EOL
 admin:
   ip: 0.0.0.0
   port: 9990
