@@ -1,0 +1,13 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: myAppConsul_1
+  cloud:
+    consul:
+      config:
+        format: YAML
+      discovery:
+        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        healthCheckPath: /my-health-check
+        healthCheckInterval: 20s
