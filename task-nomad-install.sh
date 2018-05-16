@@ -21,7 +21,7 @@ sudo chmod a+w /etc/nomad.d
 cat >/etc/nomad.d/server.hcl <<EOL
 data_dir = "/etc/nomad.d"
 server {
-  bootstrap_expect = 1
+  bootstrap_expect = 2
   enabled          = true
 }
 EOL
