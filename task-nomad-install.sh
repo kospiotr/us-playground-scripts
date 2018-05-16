@@ -28,6 +28,9 @@ server {
   enabled          = true
   bootstrap_expect = ${NOMAD_SERVERS_NUMBER}
 }
+client {
+  enabled = true
+}
 EOL
 
 echo "Nomad installed"
