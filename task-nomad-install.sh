@@ -28,6 +28,9 @@ server {
   enabled          = true
   bootstrap_expect = ${NOMAD_SERVERS_NUMBER}
 }
+consul {
+  address = "127.0.0.1:8500"
+}
 EOL
 
 cat >/etc/nomad.d/client.hcl <<EOL
