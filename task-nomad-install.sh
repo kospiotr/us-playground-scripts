@@ -30,4 +30,13 @@ server {
 }
 EOL
 
+cat >/etc/nomad.d/client.hcl <<EOL
+datacenter = "${NOMAD_DC_NAME}"
+data_dir   = "/etc/nomad.d"
+
+client {
+  enabled = true
+}
+EOL
+
 echo "Nomad installed"
