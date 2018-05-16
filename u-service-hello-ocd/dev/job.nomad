@@ -10,10 +10,7 @@ job "caller-service" {
             }
             config {
                 jar_path    = "local/microservice_consul.jar"
-                jvm_options = ["-Xmx256m", "-Xms128m"]
-                args = [
-                    "-Dserver.port=$NOMAD_PORT_HTTP"
-                ]
+                jvm_options = ["-Xmx256m", "-Xms128m", "-Dserver.port=${NOMAD_PORT_http}"]
             }
             resources {
                 cpu    = 500
