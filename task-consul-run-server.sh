@@ -5,6 +5,11 @@ nohup consul agent -server \
     -bootstrap-expect=1 -ui -client 0.0.0.0 \
     -data-dir=/tmp/consul \
     -enable-script-checks=true -config-dir=/etc/consul.d \
-    -retry-join=pk-api-orchestrator-1 2>&1 > /var/log/consul.log &
+    -retry-join=10.156.0.1 \
+    -retry-join=10.156.0.2 \
+    -retry-join=10.156.0.3 \
+    -retry-join=10.156.0.4 \
+    -retry-join=10.156.0.5 \
+    -retry-join=10.156.0.6 2>&1 > /var/log/consul.log &
 
 echo "Consul is running"
