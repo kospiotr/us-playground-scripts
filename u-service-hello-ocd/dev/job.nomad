@@ -2,7 +2,7 @@ job "caller-service" {
     datacenters = ["dc1"]
     type = "service"
     group "caller" {
-        count = 2
+        count = 5
         task "api" {
             driver = "java"
             artifact {
