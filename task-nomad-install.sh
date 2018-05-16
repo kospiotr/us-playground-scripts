@@ -18,7 +18,7 @@ sudo install nomad /usr/bin/nomad
 sudo mkdir -p /etc/nomad.d
 sudo chmod a+w /etc/nomad.d
 
-NOMAD_SERVERS_NUMBER=2
+NOMAD_SERVERS_NUMBER=1
 NOMAD_DC_NAME=dc1
 NOMAD_SERVER=true
 
