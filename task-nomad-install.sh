@@ -18,23 +18,16 @@ sudo install nomad /usr/bin/nomad
 sudo mkdir -p /etc/nomad.d
 sudo chmod a+w /etc/nomad.d
 
-NOMAD_SERVERS_NUMBER=1
-NOMAD_DC_NAME=dc1
-NOMAD_SERVER=true
-
 cat >/etc/nomad.d/server.hcl <<EOL
 data_dir = "/etc/nomad.d"
 server {
   enabled          = true
-  bootstrap_expect = ${NOMAD_SERVERS_NUMBER}
 }
 consul {
-  address = "127.0.0.1:8500"
 }
 EOL
 
 cat >/etc/nomad.d/client.hcl <<EOL
-datacenter = "${NOMAD_DC_NAME}"
 data_dir   = "/etc/nomad.d"
 
 client {
