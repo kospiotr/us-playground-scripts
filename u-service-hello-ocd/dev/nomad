@@ -1,15 +1,28 @@
-job "deploy u-service-hello" {
-  group "u-service-hello" {
+job "deploy u-service-hello-task" {
+  datacenters = ["dc1"]
+  type = "service"
+  
+  group "u-service-hello-group" {
     task "web" {
       driver = "java"
       config {
-        jar_path    = "local/microservice_consul.jar"
+        jar_path = "local/microservice_consul.jar"
         jvm_options = ["-Xmx2048m", "-Xms256m"]
       }
-      
+      resources {
+        cpu    = 500
+        memory = 300
+        network {
+          port "http" {}
+          }
+        }
+      }
+      service {
+        name = "u-service-hello"
+        port = "http"
+      }
       artifact {
         source = "https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/microservice_consul.jar"
-
         options {
         }
       }
