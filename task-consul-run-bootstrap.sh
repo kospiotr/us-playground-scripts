@@ -3,7 +3,7 @@
 echo "Running Consul in bootstrap and server mode"
 nohup consul agent -server \
     -bootstrap-expect=2 -ui -client 0.0.0.0 \
-    -data-dir=/tmp/consul \
+    -data-dir=/var/consul \
     -enable-script-checks=true -config-dir=/etc/consul.d \
     -retry-join=pk-api-bootstrap \
     -retry-join=10.156.0.2 \
