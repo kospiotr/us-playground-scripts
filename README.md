@@ -12,7 +12,7 @@ Running for bootstrap VM:
 ```
 export BRANCH=master
 export REPO=raw.githubusercontent.com/kospiotr/us-playground-scripts
-sudo su -c "bash <(wget -qO- "${REPO}/${BRANCH}/startup-bootstrap.sh?nocache") $BRANCH > /var/log/startup.log" root
+sudo su -c "bash <(wget -qO- "https://${REPO}/${BRANCH}/startup-bootstrap.sh?nocache") $BRANCH > /var/log/startup.log" root
 ```
 
 Running for server VM:
@@ -20,5 +20,5 @@ Running for server VM:
 ```
 export BRANCH=master
 export REPO=raw.githubusercontent.com/kospiotr/us-playground-scripts
-sudo su -c "bash <(wget -qO- "https://${REPO}/${BRANCH}/startup-server.sh?nocache") $BRANCH > /var/log/startup.log" root
+sudo su -c "bash <(wget -qO- "https://${REPO}/${BRANCH}/startup-instance.sh?nocache") $BRANCH > /var/log/startup.log" root
 ```
