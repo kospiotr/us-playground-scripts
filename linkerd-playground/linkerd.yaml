@@ -6,6 +6,7 @@ namers:
 - kind: io.l5d.consul
   host: consul
   port: 8500
+  # prefix: /api
   # includeTag: true
   useHealthCheck: false
   healthStatuses:
@@ -16,10 +17,11 @@ routers:
 - protocol: http
   identifier:
    kind: io.l5d.path
-   segments: 1
    consume: true
+  dstPrefix: /api/v1
   dtab: |
-    /svc=>/#/io.l5d.consul/dc1;
+    /host => /#/io.l5d.consul/dc1;
+    /api/v1 => /host;
   servers:
   - ip: 0.0.0.0
     port: 4140
