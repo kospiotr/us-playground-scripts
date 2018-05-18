@@ -4,7 +4,7 @@ job "linkerd-job" {
     group "caller" {
         count = 1
         task "linkerd-task" {
-            driver = "java"
+            driver = "exec"
             artifact {
               source = "https://github.com/linkerd/linkerd/releases/download/1.4.0/linkerd-1.4.0.tgz"
             }
