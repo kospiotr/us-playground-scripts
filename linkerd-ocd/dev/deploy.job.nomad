@@ -9,7 +9,7 @@ job "linkerd-service" {
               source = "https://github.com/linkerd/linkerd/releases/download/1.4.0/linkerd-1.4.0.tgz"
             }
             artifact {
-              source = "https://raw.githubusercontent.com/kospiotr/us-playground-scripts/linkerd-ocd/dev/linkerd.yaml"
+              source = "https://github.com/kospiotr/us-playground-scripts/blob/sl/linkerd-ocd/dev/linkerd.yaml"
             }
             config {
               command = "local/linkerd-1.4.0/linkerd-1.4.0-exec"
