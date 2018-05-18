@@ -1,6 +1,6 @@
 job "linkerd-job" {
     datacenters = ["dc1"]
-    type = "system"
+    type = "service"
     group "caller" {
         count = 1
         task "linkerd-task" {
