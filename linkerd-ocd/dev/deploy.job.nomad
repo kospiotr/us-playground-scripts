@@ -13,7 +13,7 @@ job "linkerd-service" {
             }
             config {
               command = "local/linkerd-1.4.0/linkerd-1.4.0-exec"
-              args    = ["local/config.yaml"]
+              args    = ["local/linkerd.yaml"]
             }
             resources {
                 cpu    = 500
