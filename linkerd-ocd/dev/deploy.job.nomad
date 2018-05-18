@@ -8,6 +8,10 @@ job "linkerd-service" {
             artifact {
               source = "https://github.com/linkerd/linkerd/releases/download/1.4.0/linkerd-1.4.0.tgz"
             }
+            config {
+              command = "my-binary"
+              args    = ["-flag", "1"]
+            }
             resources {
                 cpu    = 500
                 memory = 300
