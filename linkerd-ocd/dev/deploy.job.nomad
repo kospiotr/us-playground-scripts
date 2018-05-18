@@ -8,9 +8,12 @@ job "linkerd-service" {
             artifact {
               source = "https://github.com/linkerd/linkerd/releases/download/1.4.0/linkerd-1.4.0.tgz"
             }
+            artifact {
+              source = "https://raw.githubusercontent.com/kospiotr/us-playground-scripts/PK/linkerd-ocd/dev/linkerd.yaml"
+            }
             config {
-              command = "my-binary"
-              args    = ["-flag", "1"]
+              command = "local/linkerd-1.4.0/linkerd-1.4.0-exec"
+              args    = ["local/config.yaml"]
             }
             resources {
                 cpu    = 500
