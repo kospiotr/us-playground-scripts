@@ -12,16 +12,20 @@ namers:
   healthStatuses:
     - "passing"
     - "warning"
+- kind: io.l5d.rewrite
+  prefix: /apiToSrv
+  pattern: "/api/v1/{service}"
+  name: "/srv/{service}"
 
 routers:
 - protocol: http
   identifier:
    kind: io.l5d.path
    consume: true
-  dstPrefix: /api/v1
+   segments: 3
   dtab: |
-    /host => /#/io.l5d.consul/dc1;
-    /api/v1 => /host;
+    /srv => /#/io.l5d.consul/dc1;
+    /svc => /#/apiToSrv
   servers:
   - ip: 0.0.0.0
     port: 4140
