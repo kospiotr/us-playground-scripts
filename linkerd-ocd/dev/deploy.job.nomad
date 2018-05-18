@@ -1,16 +1,20 @@
-job "a-service" {
+job "linkerd-service" {
     datacenters = ["dc1"]
     type = "service"
-    group "a-group" {
+    group "linkerd-group" {
         count = 1
-        task "a-task" {
-            driver = "java"
+        task "linkerd-task" {
+            driver = "exec"
             artifact {
               source = "https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/microservice_consul.jar"
             }
-            config {
-                jar_path    = "local/microservice_consul.jar"
-                jvm_options = ["-Xmx256m", "-Xms128m", "-Dserver.port=${NOMAD_PORT_http}"]
+            network {
+                routers "routers" {
+                  static = 4140
+                }
+                admin "admin" {
+                  static = 9990
+                }
             }
             resources {
                 cpu    = 500
@@ -20,7 +24,7 @@ job "a-service" {
                 }
             }
             service {
-                name = "a-service"
+                name = "linkerd-service"
                 port = "http"
             }
         }
