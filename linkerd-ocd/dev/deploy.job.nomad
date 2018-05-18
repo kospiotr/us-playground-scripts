@@ -12,10 +12,10 @@ job "linkerd-service" {
                 cpu    = 500
                 memory = 300
                 network {
-                    routers "routers" {
+                    port "routers" {
                       static = 4140
                     }
-                    admin "admin" {
+                    port "admin" {
                       static = 9990
                     }
                 }
