@@ -17,7 +17,11 @@ echo "Installing Consul version ${CONSUL_DEMO_VERSION} ..."
 unzip consul.zip
 sudo chmod +x consul
 sudo mv consul /usr/bin/consul
+
 sudo mkdir /etc/consul.d
 sudo chmod a+w /etc/consul.d
+
+sudo mkdir /var/consul
+sudo chmod a+w /var/consul
 
 echo "Consul installed"
