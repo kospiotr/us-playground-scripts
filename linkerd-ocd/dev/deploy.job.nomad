@@ -22,7 +22,8 @@ job "linkerd-service" {
             }
             service {
                 name = "linkerd-service"
-                port = "http"
+                portRouters = "routers"
+                portAdmin = "admin"
             }
         }
         restart {
