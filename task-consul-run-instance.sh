@@ -2,7 +2,7 @@
 
 echo "Running Consul in server mode"
 nohup consul agent -server \
-    -data-dir=/tmp/consul \
+    -data-dir=/var/consul \
     -enable-script-checks=true -config-dir=/etc/consul.d \
     -retry-join=pk-api-bootstrap \
     -retry-join=10.156.0.2 \

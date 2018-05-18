@@ -1,0 +1,20 @@
+admin:
+  ip: 0.0.0.0
+  port: 9990
+namers:
+- kind: io.l5d.consul
+  includeTag: false
+  useHealthCheck: false
+  host: 0.0.0.0
+routers:
+- protocol: http
+  identifier:
+    kind: io.l5d.path
+    segments: 3
+    consume: true
+  dstPrefix: /api/custom/prod
+  dtab: |
+    /api/custom/prod => /#/io.l5d.consul/dc1;
+  servers:
+  - ip: 0.0.0.0
+    port: 4140
