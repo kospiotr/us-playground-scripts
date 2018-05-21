@@ -55,6 +55,7 @@ Scheduler for services
 * Run: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-run.sh
 * Dashboard: http://35.234.127.135:4646/ui
 * Sample CLI: `nomad server members`
+* Clean dead jobs: `curl -X PUT http://35.234.127.135:4646/v1/system/gc`
 
 ### Api Gateway
 
