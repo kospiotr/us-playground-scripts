@@ -75,7 +75,7 @@ wget "${REPO}/${BRANCH}/u-service-app1-ocd/${ENVIRONMENT}/deploy.job.nomad?nocac
 export BRANCH=master
 export ENVIRONMENT=dev
 export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
-wget "${REPO}/${BRANCH}/u-service-app1-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-app2-ocd.job.nomad && nomad job run u-service-app2-ocd.job.nomad
+wget "${REPO}/${BRANCH}/u-service-app2-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-app2-ocd.job.nomad && nomad job run u-service-app2-ocd.job.nomad
 ```
 
 * :white_check_mark: Registration in Service Discovery
