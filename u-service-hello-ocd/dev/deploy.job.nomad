@@ -19,10 +19,6 @@ job "u-service-hello-service" {
                     port "http" {}
                 }
             }
-            service {
-                name = "u-service-hello-service"
-                port = "http"
-            }
         }
         restart {
             attempts = 1
