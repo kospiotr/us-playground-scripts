@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import org.apache.commons.lang3.StringUtils;
 
 @Configuration
 @EnableAutoConfiguration
@@ -52,7 +51,7 @@ public class MicroserviceConsul1Application {
 
         try {
             if(delay != null){
-                LOGGER.info("Sleep for : " +  delay + "s");
+                LOGGER.info("Sleep for : " +  delay + "ms");
                 info.append("Your app was call with delay<b> " + delay + "ms</b></br>");
 
                 Thread.sleep( delay );
@@ -67,9 +66,9 @@ public class MicroserviceConsul1Application {
             LOGGER.info("Your current Local server port : " +  environment.getProperty("local.server.port"));
 
         } catch (InterruptedException e) {
-            LOGGER.error("Lollger InterruptedException " + e);
+            LOGGER.error("Logger InterruptedException " + e);
         } catch (UnknownHostException e) {
-            LOGGER.error("Lollger UnknownHostException " + e);
+            LOGGER.error("Logger UnknownHostException " + e);
         }
 
         return info + "Application name  : <b>" +  name +
