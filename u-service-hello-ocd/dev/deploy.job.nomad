@@ -6,7 +6,7 @@ job "caller-service" {
         task "api" {
             driver = "java"
             artifact {
-              source = "https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/microservice_consul_1-0.0.1-SNAPSHOT.jar"
+              source = "https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/microservice_consul_1-0.0.1-SNAPSHOT.jar"
             }
             config {
                 jar_path    = "local/microservice_consul.jar"
