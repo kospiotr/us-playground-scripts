@@ -44,7 +44,7 @@ Service Discovery and dependency for Nomad, API G/W
 * :white_check_mark: Install: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-install.sh
 * :white_check_mark: Run bootstrap: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-run-bootstrap.sh
 * :white_check_mark: Run instance: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-run-instance.sh
-* :white_check_mark: Dashboard: http://35.198.116.22:8500/ui
+* :white_check_mark: Dashboard: http://35.234.127.135:8500/ui
 * :white_check_mark: Sample CLI: `consul members`
 
 ### :white_check_mark: Nomad
@@ -53,9 +53,9 @@ Scheduler for services
 
 * :white_check_mark: Install: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-install.sh
 * :white_check_mark: Run: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-run.sh
-* :white_check_mark: Dashboard: http://35.198.116.22:4646/ui
+* :white_check_mark: Dashboard: http://35.234.127.135:4646/ui
 * :white_check_mark: Sample CLI: `nomad server members`
-* :white_check_mark: Clean dead jobs: `curl -X PUT http://35.198.116.22:4646/v1/system/gc`
+* :white_check_mark: Clean dead jobs: `curl -X PUT http://35.234.127.135:4646/v1/system/gc`
 
 ### :black_square_button: Micro Services
 
@@ -99,15 +99,15 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 
 wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O linkerd.job.nomad && nomad job run linkerd.job.nomad
 ```
-* :white_check_mark: Dashboard: http://35.234.75.13:9990/?router=http
+* :white_check_mark: Dashboard: http://35.234.127.135:9990/?router=http
 * :black_square_button: HelloWorld app:
-  * :white_check_mark: Root: http://35.234.75.13:4140/api/v1/u-service-app-1/
-  * :white_check_mark: HC: http://35.234.75.13:4140/api/v1//my-health-check/
-  * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/u-service-app-1/inspect
+  * :white_check_mark: Root: http://35.234.127.135:4140/api/v1/u-service-app-1/
+  * :white_check_mark: HC: http://35.234.127.135:4140/api/v1//my-health-check/
+  * :black_square_button: Inspect: http://35.234.127.135:4140/api/v1/u-service-app-1/inspect
 * :black_square_button: Another app:
-  * :black_square_button: Root: http://35.234.75.13:4140/api/v1/u-service-app-2/
-  * :black_square_button: HC: http://35.234.75.13:4140/api/v1/my-health-check/
-  * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/u-service-app-2/inspect
+  * :black_square_button: Root: http://35.234.127.135:4140/api/v1/u-service-app-2/
+  * :black_square_button: HC: http://35.234.127.135:4140/api/v1/my-health-check/
+  * :black_square_button: Inspect: http://35.234.127.135:4140/api/v1/u-service-app-2/inspect
 
 #### :black_square_button: Spring Gateway
 
