@@ -24,7 +24,6 @@ import org.apache.commons.lang3.StringUtils;
 public class MicroserviceConsul1Application {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(com.gft.first.microservice_consul_1.MicroserviceConsul1Application.class);
-    public static final int SECUND = 1000;
 
     @Value("${spring.application.name}")
     private String name;
@@ -45,15 +44,18 @@ public class MicroserviceConsul1Application {
     }
 
     @RequestMapping(value = "/api/inspect")
-    public String apiInspect(@RequestParam(value = "delay", required = false) String delay) {
+    public String apiInspect(@RequestParam(value = "delay", required = false) Integer delay) {
 
         InetAddress ip = null;
         String hostname = null;
+        StringBuffer info =  new StringBuffer();
 
         try {
-            if(StringUtils.isNotEmpty(delay) && StringUtils.isNumeric(delay)){
+            if(delay != null){
                 LOGGER.info("Sleep for : " +  delay + "s");
-                Thread.sleep(Integer.parseInt(delay) * SECUND);
+                info.append("Your app was call with delay<b> " + delay + "ms</b></br>");
+
+                Thread.sleep( delay );
             }
 
             ip = InetAddress.getLocalHost();
@@ -70,7 +72,7 @@ public class MicroserviceConsul1Application {
             LOGGER.error("Lollger UnknownHostException " + e);
         }
 
-        return "Application name  : <b>" +  name +
+        return info + "Application name  : <b>" +  name +
                 "</b><br/>Your current IP address : <b>" + ip +
                 "</b><br/> Your current Hostname : <b>" + hostname +
                 "</b><br/>Your current Local server port  : <b>" +  environment.getProperty("local.server.port") + "</b>";
