@@ -25,11 +25,11 @@ sudo su -c "bash <(wget -qO- "https://${REPO}/${BRANCH}/startup-instance.sh?noca
 
 ## Demo
 
-### Infrastructure
+### [x] Infrastructure
 
 Boxes, Network, Firewall, Ports, Internal / External IPs
 
-### Architecture
+### [x] Architecture
 
 Load Balancer -> Api G/W -> Service Discovery -> Micro Services
 
@@ -37,7 +37,7 @@ Load Balancer -> Api G/W -> Service Discovery -> Micro Services
 
 Out of the scope
 
-### Consul
+### [x] Consul
 
 Service Discovery and dependency for Nomad, API G/W
 
@@ -47,7 +47,7 @@ Service Discovery and dependency for Nomad, API G/W
 * Dashboard: http://35.234.127.135:8500/ui
 * Sample CLI: `consul members`
 
-### Nomad
+### [x] Nomad
 
 Scheduler for services
 
@@ -57,9 +57,9 @@ Scheduler for services
 * Sample CLI: `nomad server members`
 * Clean dead jobs: `curl -X PUT http://35.234.127.135:4646/v1/system/gc`
 
-### Api Gateway
+### [] Api Gateway
 
-#### Linkerd
+#### [x] Linkerd
 
 * Source code: https://github.com/kospiotr/us-playground-scripts/tree/master/linkerd-ocd
 * Deploy:
@@ -70,7 +70,6 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 
 wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O linkerd.job.nomad && nomad job run linkerd.job.nomad
 ```
-
 
 #### Spring Gateway
 
@@ -85,7 +84,7 @@ wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O
 
 Dashboard: http://35.234.75.13:9990/?router=http
 
-### Micro Services
+### [] Micro Services
 
 * Sample App walkthrough (#TODO source code here)
 * Rest Endpoints (#TODO list of the endpoint)
@@ -103,15 +102,5 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-hello-ocd.job.nomad && nomad job run u-service-hello-ocd.job.nomad
 ```
 
-### Service Discovery
-
-* Consul
-* Dashboard (http://35.234.127.135:8500/ui)
-* Bootstrap / Server / Client, Cluster (Leader election, gossip protocol)
-
-### Load Balancing
-
-
-
-### Deployment, Scaling
+### Scale
 
