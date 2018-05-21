@@ -31,7 +31,59 @@ Boxes, Network, Firewall, Ports, Internal / External IPs
 
 ### Architecture
 
-Micro Services, Service Discovery, Api G/W, Load Balancer
+Load Balancer -> Api G/W -> Service Discovery -> Micro Services
+
+### Load balancer
+
+Out of the scope
+
+### Consul
+
+Service Discovery and dependency for Nomad, API G/W
+
+* Installing: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-install.sh
+* Running bootstrap: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-run-bootstrap.sh
+* Running instance: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-run-instance.sh
+* Dashboard: http://35.234.127.135:8500/ui
+* Sample CLI: `consul members`
+
+### Nomad
+
+Scheduler for services
+
+* Installing: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-install.sh
+* Running: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-run.sh
+* Dashboard: http://35.234.127.135:4646/ui
+* Sample CLI: `nomad server members`
+
+### Api Gateway
+
+#### Linkerd
+
+* Source code: https://github.com/kospiotr/us-playground-scripts/tree/master/linkerd-ocd
+* Deploying:
+```
+export BRANCH=master
+export ENVIRONMENT=dev
+export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
+
+wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O linkerd.job.nomad && nomad job run linkerd.job.nomad
+```
+
+
+#### Spring Gateway
+
+Deploy:
+
+```
+export BRANCH=master
+export ENVIRONMENT=dev
+export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
+
+wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad" -O linkerd.job.nomad && nomad job run linkerd.job.nomad
+```
+
+Dashboard: http://35.234.75.13:9990/?router=http
 
 ### Micro Services
 
