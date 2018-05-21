@@ -5,6 +5,7 @@ spring:
     name: u-service-hello-app
   cloud:
     consul:
+      host: localhost
       config:
         format: YAML
       discovery:
