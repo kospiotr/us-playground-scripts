@@ -60,14 +60,13 @@ Scheduler for services
 ### :black_square_button: Micro Services
 
 * :white_check_mark: Sample App walkthrough (https://github.com/kospiotr/us-playground-scripts/tree/master/u-service-hello)
-* :white_check_mark: Registration in Service Discovery
-* :white_check_mark: Deploy 1 service:
+* :black_square_button: Deploy 1 service:
 
 ```
 export BRANCH=master
 export ENVIRONMENT=dev
 export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
-wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-hello-ocd.job.nomad && nomad job run u-service-hello-ocd.job.nomad
+wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-app1-ocd.job.nomad && nomad job run u-service-app1-ocd.job.nomad
 ```
 
 * :black_square_button: Deploy 2 service:
@@ -76,9 +75,10 @@ wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/deploy.job.nomad?noca
 export BRANCH=master
 export ENVIRONMENT=dev
 export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
-wget "${REPO}/${BRANCH}/u-service-another-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-another-ocd.job.nomad && nomad job run u-service-another-ocd.job.nomad
+wget "${REPO}/${BRANCH}/u-service-another-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-app2-ocd.job.nomad && nomad job run u-service-app2-ocd.job.nomad
 ```
 
+* :white_check_mark: Registration in Service Discovery
 * Rest Endpoints
   * Main (/) - default entrypoint displaying Hello World
   * Healthcheck (/my-health-check) - healthcheck for service discovery and or gateway 
@@ -128,6 +128,7 @@ wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O
   * :black_square_button: Inspect: TBD  
 
 ### :black_square_button: Scale
+### :black_square_button: Version deployment
 ### :black_square_button: Testing
 
 * :black_square_button: Load tests
