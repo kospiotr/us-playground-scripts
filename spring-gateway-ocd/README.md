@@ -1,8 +1,8 @@
-Running Spring Gateway OCR
+Running Spring Gateway
 
 ```
 1. Build with maven (mvn clean install)
-2. Run java -jar ./spring-gateway-ocd.jar -Dspring.config.location=file:application.yml
+2. Run java -jar ./spring-gateway.jar -Dspring.config.location=file:application.yml
 ```
 
 Routing Refresh
