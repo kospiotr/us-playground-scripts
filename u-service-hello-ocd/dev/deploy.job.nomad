@@ -1,9 +1,9 @@
-job "caller-service" {
+job "u-service-hello-service" {
     datacenters = ["dc1"]
     type = "service"
-    group "caller" {
+    group "u-service-hello-group" {
         count = 5
-        task "api" {
+        task "u-service-hello-task" {
             driver = "java"
             artifact {
               source = "https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/microservice_consul_1-0.0.1-SNAPSHOT.jar"
@@ -20,7 +20,7 @@ job "caller-service" {
                 }
             }
             service {
-                name = "caller-service"
+                name = "u-service-hello-service"
                 port = "http"
             }
         }
