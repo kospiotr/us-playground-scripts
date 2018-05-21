@@ -27,15 +27,30 @@ sudo su -c "bash <(wget -qO- "https://${REPO}/${BRANCH}/startup-instance.sh?noca
 
 ### Infrastructure
 
-Boxes, Network, Firewall, Ports
+Boxes, Network, Firewall, Ports, Internal / External IPs
 
 ### Architecture
 
+Micro Services, Service Discovery, Api G/W, Load Balancer
+
 ### Micro Services
+
+* Sample App walkthrough (#TODO source code here)
+* Rest Endpoints (#TODO list of the endpoint)
+  * Service info / ID
+  * Healthcheck
+  * Delay
+* Registration in Service Discovery
 
 ### Service Discovery
 
+* Consul
+* Dashboard (http://35.234.127.135:8500/ui)
+* Bootstrap / Server
+
 ### Load Balancing
+
+
 
 ### Deployment, Scaling
 
