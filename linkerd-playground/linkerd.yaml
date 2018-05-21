@@ -1,0 +1,31 @@
+admin:
+  ip: 0.0.0.0
+  port: 9990
+
+namers:
+- kind: io.l5d.consul
+  host: consul
+  port: 8500
+  # prefix: /api
+  # includeTag: true
+  useHealthCheck: false
+  healthStatuses:
+    - "passing"
+    - "warning"
+- kind: io.l5d.rewrite
+  prefix: /apiToSrv
+  pattern: "/api/v1/{service}"
+  name: "/srv/{service}"
+
+routers:
+- protocol: http
+  identifier:
+   kind: io.l5d.path
+   consume: true
+   segments: 3
+  dtab: |
+    /srv => /#/io.l5d.consul/dc1;
+    /svc => /#/apiToSrv
+  servers:
+  - ip: 0.0.0.0
+    port: 4140

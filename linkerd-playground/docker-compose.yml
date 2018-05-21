@@ -1,0 +1,32 @@
+version: '3'
+services:
+  # an nginx service serving static content
+  # trade-webservice:
+  #   image: crccheck/hello-world
+  # linkerd
+  l5d:
+    image: buoyantio/linkerd:1.4.0
+    ports:
+    - "4140:4140" # port for accessing API
+    - "9990:9990"
+    # we must mount the config file and the disco directory
+    volumes:
+    - ./linkerd.yaml:/io.buoyant/linkerd.yaml:ro
+    # - ./disco:/io.buoyant/disco
+    command: >
+      /io.buoyant/linkerd.yaml
+    depends_on:
+      - consul
+  #consul
+  consul:
+    image: "consul:0.8.0"
+    ports:
+      - "8500:8500"
+  hello-world:
+    build: .
+    ports:
+      - "8091:8091"
+    links:
+      - "consul:consul"
+    depends_on:
+      - consul

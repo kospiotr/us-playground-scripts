@@ -6,15 +6,19 @@ namers:
   includeTag: false
   useHealthCheck: false
   host: 0.0.0.0
+- kind: io.l5d.rewrite
+  prefix: /apiToSrv
+  pattern: "/api/v1/{service}"
+  name: "/srv/{service}"
 routers:
 - protocol: http
   identifier:
     kind: io.l5d.path
     segments: 3
     consume: true
-  dstPrefix: /api/custom/prod
   dtab: |
-    /api/custom/prod => /#/io.l5d.consul/dc1;
+    /srv => /#/io.l5d.consul/dc1;
+    /svc => /#/apiToSrv;
   servers:
   - ip: 0.0.0.0
     port: 4140
