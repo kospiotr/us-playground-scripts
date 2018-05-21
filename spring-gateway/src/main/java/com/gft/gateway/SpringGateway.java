@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableDiscoveryClient
 @RestController
 @EnableAutoConfiguration
-public class SpringGatewayOcd {
+public class SpringGateway {
 
     @RequestMapping("/health")
     public String health() {
@@ -19,6 +19,6 @@ public class SpringGatewayOcd {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringGatewayOcd.class, args);
+        SpringApplication.run(SpringGateway.class, args);
     }
 }
