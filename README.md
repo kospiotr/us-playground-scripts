@@ -102,8 +102,8 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O 
 
 #### :black_square_button: Spring Gateway
 
-* :white_check_mark: Code: https://github.com/kospiotr/us-playground-scripts/tree/master/linkerd-ocd
-* :white_check_mark: Deploy:
+* :black_square_button: Code: https://github.com/kospiotr/us-playground-scripts/tree/master/linkerd-ocd
+* :black_square_button: Deploy:
 
 ```
 export BRANCH=master
@@ -113,16 +113,25 @@ wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O
 ```
 
 * :white_check_mark: Dashboard: http://35.234.75.13:9990/?router=http
-* HelloWorld app:
-  * :black_square_button: Root: http://35.234.75.13:4140/api/v1/helloWorldApp/
-  * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/helloWorldApp/inspect
-* Another app:
-  * :black_square_button: Root: http://35.234.75.13:4140/api/v1/anotherApp/
-  * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/anotherApp/inspect  
+* :black_square_button: Linkerd
+  * :black_square_button: HelloWorld app:
+    * :black_square_button: Root: http://35.234.75.13:4140/api/v1/helloWorldApp/
+    * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/helloWorldApp/inspect
+  * :black_square_button: Another app:
+    * :black_square_button: Root: http://35.234.75.13:4140/api/v1/anotherApp/
+    * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/anotherApp/inspect
+
+* :black_square_button: Spring G/W
+  * :black_square_button: HelloWorld app:
+    * :black_square_button: Root: TBD
+    * :black_square_button: Inspect: TBD
+  * :black_square_button: Another app:
+    * :black_square_button: Root: TBD
+    * :black_square_button: Inspect: TBD  
 
 ### :black_square_button: Scale
 ### :black_square_button: Testing
 
-* Load tests
-* Chaos tests
+* :black_square_button: Load tests
+* :black_square_button: Chaos tests
 
