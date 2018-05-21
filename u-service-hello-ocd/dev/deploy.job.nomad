@@ -7,10 +7,9 @@ job "u-service-hello-service" {
             driver = "java"
             artifact {
               source = "https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/microservice_consul_1-0.0.1-SNAPSHOT.jar"
-              destination = "local/u-service-hello.jar"
             }
             config {
-                jar_path    = "local/u-service-hello.jar"
+                jar_path    = "local/microservice_consul_1-0.0.1-SNAPSHOT.jar"
                 jvm_options = ["-Xmx256m", "-Xms128m", "-Dserver.port=${NOMAD_PORT_http}"]
             }
             resources {
