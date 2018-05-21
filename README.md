@@ -60,22 +60,22 @@ Scheduler for services
 ### :black_square_button: Micro Services
 
 * :white_check_mark: Sample App walkthrough (https://github.com/kospiotr/us-playground-scripts/tree/master/u-service-hello)
-* :black_square_button: Deploy 1 service:
+* :white_check_mark: Deploy 1 micro service:
 
 ```
 export BRANCH=master
 export ENVIRONMENT=dev
 export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
-wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-app1-ocd.job.nomad && nomad job run u-service-app1-ocd.job.nomad
+wget "${REPO}/${BRANCH}/u-service-app1-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-app1-ocd.job.nomad && nomad job run u-service-app1-ocd.job.nomad
 ```
 
-* :black_square_button: Deploy 2 service:
+* :black_square_button: Deploy 2 micro service:
 
 ```
 export BRANCH=master
 export ENVIRONMENT=dev
 export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
-wget "${REPO}/${BRANCH}/u-service-another-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-app2-ocd.job.nomad && nomad job run u-service-app2-ocd.job.nomad
+wget "${REPO}/${BRANCH}/u-service-app1-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-app2-ocd.job.nomad && nomad job run u-service-app2-ocd.job.nomad
 ```
 
 * :white_check_mark: Registration in Service Discovery
