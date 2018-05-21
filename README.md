@@ -33,7 +33,7 @@ Boxes, Network, Firewall, Ports, Internal / External IPs
 
 Load Balancer -> Api G/W -> Service Discovery -> Micro Services
 
-### Load balancer
+### :black_square_button: Load balancer
 
 Out of the scope
 
@@ -57,7 +57,7 @@ Scheduler for services
 * Sample CLI: `nomad server members`
 * Clean dead jobs: `curl -X PUT http://35.234.127.135:4646/v1/system/gc`
 
-### [] Api Gateway
+### :black_square_button: Api Gateway
 
 #### :white_check_mark: Linkerd
 
@@ -71,7 +71,7 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O linkerd.job.nomad && nomad job run linkerd.job.nomad
 ```
 
-#### Spring Gateway
+#### :black_square_button: Spring Gateway
 
 * Deploy:
 
@@ -84,7 +84,7 @@ wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O
 
 Dashboard: http://35.234.75.13:9990/?router=http
 
-### [] Micro Services
+### :black_square_button: Micro Services
 
 * Sample App walkthrough (#TODO source code here)
 * Rest Endpoints (#TODO list of the endpoint)
