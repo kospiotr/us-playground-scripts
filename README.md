@@ -111,7 +111,17 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O u-service-hello-ocd.job.nomad && nomad job run u-service-hello-ocd.job.nomad
 ```
 
-Dashboard: http://35.234.75.13:9990/?router=http
+* Dashboard: http://35.234.75.13:9990/?router=http
+* HelloWorld app:
+  * Root: http://35.234.75.13:4140/api/v1/helloWorldApp/
+  * Inspect: http://35.234.75.13:4140/api/v1/helloWorldApp/inspect
+* Another app:
+  * Root: http://35.234.75.13:4140/api/v1/anotherApp/
+  * Inspect: http://35.234.75.13:4140/api/v1/anotherApp/inspect  
 
 ### :black_square_button: Scale
+### :black_square_button: Testing
+
+* Load tests
+* Chaos tests
 
