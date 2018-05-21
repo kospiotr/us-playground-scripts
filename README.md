@@ -57,7 +57,7 @@ Scheduler for services
 * :white_check_mark: Sample CLI: `nomad server members`
 * :white_check_mark: Clean dead jobs: `curl -X PUT http://35.234.127.135:4646/v1/system/gc`
 
-### :black_square_button: Micro Services
+### :white_check_mark: Micro Services
 
 * :white_check_mark: Sample App walkthrough (https://github.com/kospiotr/us-playground-scripts/tree/master/u-service-hello)
 * :white_check_mark: Deploy 1 micro service:
@@ -69,7 +69,7 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/u-service-app1-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-app1-ocd.job.nomad && nomad job run u-service-app1-ocd.job.nomad
 ```
 
-* :black_square_button: Deploy 2 micro service:
+* :white_check_mark: Deploy 2 micro service:
 
 ```
 export BRANCH=master
@@ -80,10 +80,10 @@ wget "${REPO}/${BRANCH}/u-service-app2-ocd/${ENVIRONMENT}/deploy.job.nomad?nocac
 
 * :white_check_mark: Registration in Service Discovery
 * Rest Endpoints
-  * Main (/) - default entrypoint displaying Hello World
-  * Healthcheck (/my-health-check) - healthcheck for service discovery and or gateway 
-  * Inspect (/inspect) - displaying app instance info
-    * \?delay - sleep value in ms 
+  * :white_check_mark: Main (/) - default entrypoint displaying Hello World
+  * :white_check_mark: Healthcheck (/my-health-check) - healthcheck for service discovery and or gateway 
+  * :white_check_mark: Inspect (/inspect) - displaying app instance info
+    * :white_check_mark: \?delay - sleep value in ms 
   
 ### :black_square_button: Api Gateway
 
