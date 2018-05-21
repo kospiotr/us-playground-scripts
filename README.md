@@ -101,11 +101,11 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O 
 ```
 * :white_check_mark: Dashboard: http://35.234.75.13:9990/?router=http
 * :black_square_button: HelloWorld app:
-  * :black_square_button: Root: http://35.234.75.13:4140/api/v1/helloWorldApp/
-  * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/helloWorldApp/inspect
+  * :white_check_mark: Root: http://35.234.75.13:4140/api/v1/u-service-app-1/
+  * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/u-service-app-1/inspect
 * :black_square_button: Another app:
-  * :black_square_button: Root: http://35.234.75.13:4140/api/v1/anotherApp/
-  * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/anotherApp/inspect
+  * :black_square_button: Root: http://35.234.75.13:4140/api/v1/u-service-app-2/
+  * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/u-service-app-2/inspect
 
 #### :black_square_button: Spring Gateway
 
