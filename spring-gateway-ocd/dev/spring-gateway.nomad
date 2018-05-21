@@ -9,7 +9,7 @@ job "spring-gateway" {
               source = "https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/spring-gateway-ocd.jar"
             }
 			 artifact {
-              source = "https://raw.githubusercontent.com/kospiotr/us-playground-scripts/MN/spring-gateway-ocd/dev/application.yml"
+              source = "https://raw.githubusercontent.com/kospiotr/us-playground-scripts/master/spring-gateway-ocd/dev/application.yml"
             }
             config { # (3)
                 jar_path    = "local/spring-gateway-ocd.jar"
