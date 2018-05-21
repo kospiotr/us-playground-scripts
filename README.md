@@ -86,9 +86,8 @@ Dashboard: http://35.234.75.13:9990/?router=http
 
 ### :black_square_button: Micro Services
 
-* Sample App walkthrough (#TODO source code here)
+* Sample App walkthrough (https://github.com/kospiotr/us-playground-scripts/tree/master/u-service-hello)
 * Rest Endpoints (#TODO list of the endpoint)
-  * Service info / ID
   * Healthcheck
   * Delay
 * Registration in Service Discovery
@@ -102,5 +101,5 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-hello-ocd.job.nomad && nomad job run u-service-hello-ocd.job.nomad
 ```
 
-### Scale
+### :black_square_button: Scale
 
