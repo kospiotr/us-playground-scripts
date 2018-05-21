@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: spring-gateway-ocd
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        enabled: true
+        format: key_value
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+        healthCheckPath: /health
+        healthCheckInterval: 20s
+    gateway:
+      routes:
+        - id: rewrite_path
+          uri: http://localhost:${NOMAD_HOST_PORT_http:8080}
+          predicates:
+          - Path=/api/v1/**
+          filters:
+          - RewritePath=/api/v1/(?<segment>.*), /$\{segment}
+      discovery:
+        locator:
+          enabled: true
+        enabled: true
+
+endpoints:
+  acurator:
+    enabled:true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+server:
+  port: ${NOMAD_HOST_PORT_http:8080}
