@@ -102,9 +102,11 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O 
 * :white_check_mark: Dashboard: http://35.234.75.13:9990/?router=http
 * :black_square_button: HelloWorld app:
   * :white_check_mark: Root: http://35.234.75.13:4140/api/v1/u-service-app-1/
+  * :white_check_mark: Root: http://35.234.75.13:4140/api/v1//my-health-check/
   * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/u-service-app-1/inspect
 * :black_square_button: Another app:
   * :black_square_button: Root: http://35.234.75.13:4140/api/v1/u-service-app-2/
+  * :black_square_button: Root: http://35.234.75.13:4140/api/v1/my-health-check/
   * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/u-service-app-2/inspect
 
 #### :black_square_button: Spring Gateway
@@ -119,13 +121,13 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O u-service-hello-ocd.job.nomad && nomad job run u-service-hello-ocd.job.nomad
 ```
 
-* :white_check_mark: Dashboard: TBD
+* :black_square_button: Dashboard:
 * :black_square_button: HelloWorld app:
-  * :black_square_button: Root: TBD
-  * :black_square_button: Inspect: TBD
+  * :black_square_button: Root:
+  * :black_square_button: Inspect:
 * :black_square_button: Another app:
-  * :black_square_button: Root: TBD
-  * :black_square_button: Inspect: TBD  
+  * :black_square_button: Root:
+  * :black_square_button: Inspect:
 
 ### :black_square_button: Scale
 ### :black_square_button: Version deployment
