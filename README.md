@@ -22,3 +22,18 @@ export BRANCH=master
 export REPO=raw.githubusercontent.com/kospiotr/us-playground-scripts
 sudo su -c "bash <(wget -qO- "https://${REPO}/${BRANCH}/startup-instance.sh?nocache") $BRANCH > /var/log/startup.log" root
 ```
+
+## Demo
+
+### Infrastructure
+
+Boxes, Network, Firewall, Ports
+
+### Architecture
+
+### Micro Services
+
+### Service Discovery
+
+### Deployment, Scaling
+
