@@ -46,7 +46,7 @@ Micro Services, Service Discovery, Api G/W, Load Balancer
 
 * Consul
 * Dashboard (http://35.234.127.135:8500/ui)
-* Bootstrap / Server
+* Bootstrap / Server / Client, Cluster (Leader election, gossip protocol)
 
 ### Load Balancing
 
