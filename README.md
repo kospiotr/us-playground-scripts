@@ -25,11 +25,11 @@ sudo su -c "bash <(wget -qO- "https://${REPO}/${BRANCH}/startup-instance.sh?noca
 
 ## Demo
 
-### [x] Infrastructure
+### :white_check_mark: Infrastructure
 
 Boxes, Network, Firewall, Ports, Internal / External IPs
 
-### [x] Architecture
+### :white_check_mark: Architecture
 
 Load Balancer -> Api G/W -> Service Discovery -> Micro Services
 
@@ -37,7 +37,7 @@ Load Balancer -> Api G/W -> Service Discovery -> Micro Services
 
 Out of the scope
 
-### [x] Consul
+### :white_check_mark: Consul
 
 Service Discovery and dependency for Nomad, API G/W
 
@@ -47,7 +47,7 @@ Service Discovery and dependency for Nomad, API G/W
 * Dashboard: http://35.234.127.135:8500/ui
 * Sample CLI: `consul members`
 
-### [x] Nomad
+### :white_check_mark: Nomad
 
 Scheduler for services
 
@@ -59,7 +59,7 @@ Scheduler for services
 
 ### [] Api Gateway
 
-#### [x] Linkerd
+#### :white_check_mark: Linkerd
 
 * Source code: https://github.com/kospiotr/us-playground-scripts/tree/master/linkerd-ocd
 * Deploy:
