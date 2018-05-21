@@ -57,12 +57,41 @@ Scheduler for services
 * Sample CLI: `nomad server members`
 * Clean dead jobs: `curl -X PUT http://35.234.127.135:4646/v1/system/gc`
 
+### :black_square_button: Micro Services
+
+* Sample App walkthrough (https://github.com/kospiotr/us-playground-scripts/tree/master/u-service-hello)
+* Registration in Service Discovery
+* Deploy 1 service:
+
+```
+export BRANCH=master
+export ENVIRONMENT=dev
+export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
+wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-hello-ocd.job.nomad && nomad job run u-service-hello-ocd.job.nomad
+```
+
+* Deploy 2 service:
+
+```
+export BRANCH=master
+export ENVIRONMENT=dev
+export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
+wget "${REPO}/${BRANCH}/u-service-another-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-another-ocd.job.nomad && nomad job run u-service-another-ocd.job.nomad
+```
+
+* Rest Endpoints
+  * Main (/) - default entrypoint displaying Hello World
+  * Healthcheck (/my-health-check) - healthcheck for service discovery and or gateway 
+  * Inspect (/inspect) - displaying app instance info
+    * \?delay - sleep value in ms 
+  
 ### :black_square_button: Api Gateway
 
 #### :white_check_mark: Linkerd
 
 * Source code: https://github.com/kospiotr/us-playground-scripts/tree/master/linkerd-ocd
 * Deploy:
+
 ```
 export BRANCH=master
 export ENVIRONMENT=dev
@@ -83,23 +112,6 @@ wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O
 ```
 
 Dashboard: http://35.234.75.13:9990/?router=http
-
-### :black_square_button: Micro Services
-
-* Sample App walkthrough (https://github.com/kospiotr/us-playground-scripts/tree/master/u-service-hello)
-* Rest Endpoints (#TODO list of the endpoint)
-  * Healthcheck
-  * Delay
-* Registration in Service Discovery
-
-Deploy:
-
-```
-export BRANCH=master
-export ENVIRONMENT=dev
-export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
-wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-hello-ocd.job.nomad && nomad job run u-service-hello-ocd.job.nomad
-```
 
 ### :black_square_button: Scale
 
