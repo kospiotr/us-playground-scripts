@@ -41,9 +41,9 @@ Out of the scope
 
 Service Discovery and dependency for Nomad, API G/W
 
-* Installing: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-install.sh
-* Running bootstrap: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-run-bootstrap.sh
-* Running instance: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-run-instance.sh
+* Install: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-install.sh
+* Run bootstrap: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-run-bootstrap.sh
+* Run instance: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-run-instance.sh
 * Dashboard: http://35.234.127.135:8500/ui
 * Sample CLI: `consul members`
 
@@ -51,8 +51,8 @@ Service Discovery and dependency for Nomad, API G/W
 
 Scheduler for services
 
-* Installing: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-install.sh
-* Running: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-run.sh
+* Install: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-install.sh
+* Run: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-run.sh
 * Dashboard: http://35.234.127.135:4646/ui
 * Sample CLI: `nomad server members`
 
@@ -61,7 +61,7 @@ Scheduler for services
 #### Linkerd
 
 * Source code: https://github.com/kospiotr/us-playground-scripts/tree/master/linkerd-ocd
-* Deploying:
+* Deploy:
 ```
 export BRANCH=master
 export ENVIRONMENT=dev
@@ -73,14 +73,13 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O 
 
 #### Spring Gateway
 
-Deploy:
+* Deploy:
 
 ```
 export BRANCH=master
 export ENVIRONMENT=dev
 export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
-
-wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad" -O linkerd.job.nomad && nomad job run linkerd.job.nomad
+wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O u-service-hello-ocd.job.nomad && nomad job run u-service-hello-ocd.job.nomad
 ```
 
 Dashboard: http://35.234.75.13:9990/?router=http
@@ -93,6 +92,15 @@ Dashboard: http://35.234.75.13:9990/?router=http
   * Healthcheck
   * Delay
 * Registration in Service Discovery
+
+Deploy:
+
+```
+export BRANCH=master
+export ENVIRONMENT=dev
+export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
+wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O u-service-hello-ocd.job.nomad && nomad job run u-service-hello-ocd.job.nomad
+```
 
 ### Service Discovery
 
