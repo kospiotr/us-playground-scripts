@@ -10,7 +10,7 @@ job "u-service-hello-service" {
             }
             config {
                 jar_path    = "local/microservice_consul_1-0.0.1-SNAPSHOT.jar"
-                jvm_options = ["-Xmx256m", "-Xms128m", "-Dserver.port=${NOMAD_PORT_http}"]
+                jvm_options = ["-Xmx256m", "-Xms128m", "-Dserver.port=${NOMAD_PORT_http}", "-Dspring.cloud.consul.host=localhost"]
             }
             resources {
                 cpu    = 500
