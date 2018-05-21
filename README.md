@@ -41,27 +41,27 @@ Out of the scope
 
 Service Discovery and dependency for Nomad, API G/W
 
-* Install: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-install.sh
-* Run bootstrap: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-run-bootstrap.sh
-* Run instance: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-run-instance.sh
-* Dashboard: http://35.234.127.135:8500/ui
-* Sample CLI: `consul members`
+* :white_check_mark: Install: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-install.sh
+* :white_check_mark: Run bootstrap: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-run-bootstrap.sh
+* :white_check_mark: Run instance: https://github.com/kospiotr/us-playground-scripts/blob/master/task-consul-run-instance.sh
+* :white_check_mark: Dashboard: http://35.234.127.135:8500/ui
+* :white_check_mark: Sample CLI: `consul members`
 
 ### :white_check_mark: Nomad
 
 Scheduler for services
 
-* Install: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-install.sh
-* Run: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-run.sh
-* Dashboard: http://35.234.127.135:4646/ui
-* Sample CLI: `nomad server members`
-* Clean dead jobs: `curl -X PUT http://35.234.127.135:4646/v1/system/gc`
+* :white_check_mark: Install: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-install.sh
+* :white_check_mark: Run: https://github.com/kospiotr/us-playground-scripts/blob/master/task-nomad-run.sh
+* :white_check_mark: Dashboard: http://35.234.127.135:4646/ui
+* :white_check_mark: Sample CLI: `nomad server members`
+* :white_check_mark: Clean dead jobs: `curl -X PUT http://35.234.127.135:4646/v1/system/gc`
 
 ### :black_square_button: Micro Services
 
-* Sample App walkthrough (https://github.com/kospiotr/us-playground-scripts/tree/master/u-service-hello)
-* Registration in Service Discovery
-* Deploy 1 service:
+* :white_check_mark: Sample App walkthrough (https://github.com/kospiotr/us-playground-scripts/tree/master/u-service-hello)
+* :white_check_mark: Registration in Service Discovery
+* :white_check_mark: Deploy 1 service:
 
 ```
 export BRANCH=master
@@ -70,7 +70,7 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-hello-ocd.job.nomad && nomad job run u-service-hello-ocd.job.nomad
 ```
 
-* Deploy 2 service:
+* :black_square_button: Deploy 2 service:
 
 ```
 export BRANCH=master
@@ -89,8 +89,8 @@ wget "${REPO}/${BRANCH}/u-service-another-ocd/${ENVIRONMENT}/deploy.job.nomad?no
 
 #### :white_check_mark: Linkerd
 
-* Source code: https://github.com/kospiotr/us-playground-scripts/tree/master/linkerd-ocd
-* Deploy:
+* :white_check_mark: Source code: https://github.com/kospiotr/us-playground-scripts/tree/master/linkerd-ocd
+* :white_check_mark: Deploy:
 
 ```
 export BRANCH=master
@@ -102,7 +102,8 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O 
 
 #### :black_square_button: Spring Gateway
 
-* Deploy:
+* :white_check_mark: Code: https://github.com/kospiotr/us-playground-scripts/tree/master/linkerd-ocd
+* :white_check_mark: Deploy:
 
 ```
 export BRANCH=master
@@ -111,13 +112,13 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O u-service-hello-ocd.job.nomad && nomad job run u-service-hello-ocd.job.nomad
 ```
 
-* Dashboard: http://35.234.75.13:9990/?router=http
+* :white_check_mark: Dashboard: http://35.234.75.13:9990/?router=http
 * HelloWorld app:
-  * Root: http://35.234.75.13:4140/api/v1/helloWorldApp/
-  * Inspect: http://35.234.75.13:4140/api/v1/helloWorldApp/inspect
+  * :black_square_button: Root: http://35.234.75.13:4140/api/v1/helloWorldApp/
+  * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/helloWorldApp/inspect
 * Another app:
-  * Root: http://35.234.75.13:4140/api/v1/anotherApp/
-  * Inspect: http://35.234.75.13:4140/api/v1/anotherApp/inspect  
+  * :black_square_button: Root: http://35.234.75.13:4140/api/v1/anotherApp/
+  * :black_square_button: Inspect: http://35.234.75.13:4140/api/v1/anotherApp/inspect  
 
 ### :black_square_button: Scale
 ### :black_square_button: Testing
