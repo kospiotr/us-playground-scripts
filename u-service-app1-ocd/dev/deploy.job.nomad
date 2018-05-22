@@ -9,7 +9,7 @@ job "u-service-app1-service" {
               source = "https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/microservice_using_consul.jar"
             }
             config {
-                jar_path    = "local/microservice_consul.jar"
+                jar_path    = "local/microservice_using_consul.jar"
                 jvm_options = ["-Xmx256m", "-Xms128m", "-Dserver.port=${NOMAD_PORT_http}", "-Dspring.cloud.consul.host=localhost", "-Dspring.application.name=u-service-app-1"]
             }
             resources {
