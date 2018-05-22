@@ -1,30 +1,30 @@
 job "spring-gateway" {
     datacenters = ["dc1"]
-    type = "service"
-    group "caller" {
+    type = "system"
+    group "spring-gateway-group" {
         count = 1
-        task "api" {
+        task "spring-gateway-task" {
             driver = "java"
 			 artifact {
-              source = "https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/spring-gateway-ocd.jar"
+              source = "https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/spring-gateway.jar"
             }
 			 artifact {
               source = "https://raw.githubusercontent.com/kospiotr/us-playground-scripts/master/spring-gateway-ocd/dev/application.yml"
             }
             config { # (3)
-                jar_path    = "local/spring-gateway-ocd.jar"
-                jvm_options = ["-Xmx512m", "-Xms512m","-Dspring.config.location=file:local/application.yml"]
+                jar_path    = "local/spring-gateway.jar"
+                jvm_options = ["-Xmx512m", "-Xms512m","-Dspring.config.location=file:local/application.yml", "-Dserver.port=${NOMAD_PORT_router}"]
             }
             resources { # (4)
                 cpu    = 1000
                 memory = 1000
-                network {
-                    port "http" {} # (5)
+                port "router" {
+                	static = 4141
                 }
             }
             service { # (6)
-                name = "spring-gateway"
-                port = "http"
+                name = "spring-gateway-service"
+                port = "router"
             }
         }
         restart {
