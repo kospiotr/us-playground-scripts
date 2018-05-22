@@ -27,7 +27,7 @@ spring:
           predicates:
             - Path=/external_api_two/**
           filters:
-            - RewritePath=/external_api_one/(?<segment>.*), /$\{segment}
+            - RewritePath=/external_api_two/(?<segment>.*), /$\{segment}
       discovery:
         locator:
           enabled: true
