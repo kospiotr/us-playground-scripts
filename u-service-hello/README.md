@@ -20,6 +20,7 @@ go get github.com/aktau/github-release
 export APP_VERSION=0.0.1-SNAPSHOT
 
 #BUMP VERSION
+git pull
 mvn versions:set -DnewVersion=${APP_VERSION} -DgenerateBackupPoms=false -X
 git add --all && git commit -m "Bump version to ${APP_VERSION}" && git push
 
