@@ -103,14 +103,14 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O 
 
 #### :black_square_button: Spring Gateway
 
-* :black_square_button: Code: https://github.com/kospiotr/us-playground-scripts/tree/master/linkerd-ocd
+* :black_square_button: Code: https://github.com/kospiotr/us-playground-scripts/tree/master/spring-gateway-ocd
 * :black_square_button: Deploy:
 
 ```
 export BRANCH=master
 export ENVIRONMENT=dev
 export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
-wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O u-service-hello-ocd.job.nomad && nomad job run u-service-hello-ocd.job.nomad
+wget "${REPO}/${BRANCH}/spring-gateway-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O spring-gateway.job.nomad && nomad job run spring-gateway.job.nomad
 ```
 
 * :black_square_button: Dashboard:
