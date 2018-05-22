@@ -28,6 +28,12 @@ spring:
         locator:
           enabled: true
         enabled: true
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
 
 endpoints:
   acurator:
