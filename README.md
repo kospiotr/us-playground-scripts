@@ -74,7 +74,7 @@ wget "${REPO}/${BRANCH}/u-service-app2-ocd/${ENVIRONMENT}/deploy.job.nomad?nocac
 * Rest Endpoints
   * :white_check_mark: Main (/) - default entrypoint displaying Hello World
   * :white_check_mark: Healthcheck (/my-health-check) - healthcheck for service discovery and or gateway 
-  * :white_check_mark: Inspect (/inspect) - displaying app instance info
+  * :white_check_mark: Inspect (/api/inspect) - displaying app instance info
     * :white_check_mark: \?delay - sleep value in ms 
   
 ### :black_square_button: Api Gateway
@@ -95,11 +95,11 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O 
 * :black_square_button: HelloWorld app:
   * :white_check_mark: Root: http://35.234.127.135:4140/api/v1/u-service-app-1/
   * :white_check_mark: HC: http://35.234.127.135:4140/api/v1/u-service-app-2/my-health-check/
-  * :black_square_button: Inspect: http://35.234.127.135:4140/api/v1/u-service-app-1/inspect
+  * :white_check_mark: Inspect: http://35.234.127.135:4140/api/v1/u-service-app-1/api/inspect
 * :black_square_button: Another app:
   * :white_check_mark: Root: http://35.234.127.135:4140/api/v1/u-service-app-2/
   * :white_check_mark: HC: http://35.234.127.135:4140/api/v1/u-service-app-2/my-health-check/
-  * :black_square_button: Inspect: http://35.234.127.135:4140/api/v1/u-service-app-2/inspect
+  * :white_check_mark: Inspect: http://35.234.127.135:4140/api/v1/u-service-app-2/api/inspect
 
 #### :black_square_button: Spring Gateway
 
