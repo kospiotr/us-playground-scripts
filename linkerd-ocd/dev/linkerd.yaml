@@ -6,23 +6,26 @@ namers:
 - kind: io.l5d.consul
   host: localhost
   port: 8500
-  # prefix: /api
-  # includeTag: true
   useHealthCheck: false
   healthStatuses:
     - "passing"
     - "warning"
 - kind: io.l5d.rewrite
   prefix: /apiToSrv
-  pattern: "/api/v1/{service}"
-  name: "/srv/{service}"
+  pattern: "/external_api_one"
+  name: "/srv/u-service-app-1"
+
+- kind: io.l5d.rewrite
+  prefix: /apiToSrv
+  pattern: "/external_api_two"
+  name: "/srv/u-service-app-2"
 
 routers:
 - protocol: http
   identifier:
    kind: io.l5d.path
    consume: true
-   segments: 3
+   segments: 1
   dtab: |
     /srv => /#/io.l5d.consul/dc1;
     /svc => /#/apiToSrv
