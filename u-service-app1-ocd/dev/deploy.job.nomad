@@ -8,9 +8,12 @@ job "u-service-app1-service" {
             artifact {
               source = "https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/microservice_using_consul.jar"
             }
+            artifact {
+              source = "https://raw.githubusercontent.com/kospiotr/us-playground-scripts/master/u-service-app1-ocd/dev/application.yml"
+            }
             config {
                 jar_path    = "local/microservice_using_consul.jar"
-                jvm_options = ["-Xmx256m", "-Xms128m", "-Dserver.port=${NOMAD_PORT_http}", "-Dspring.cloud.consul.host=localhost", "-Dspring.application.name=u-service-app-1"]
+                jvm_options = ["-Xmx256m", "-Xms128m", "-Dspring.application.name=u-service-app-1", "-Dspring.config.location=file:local/application.yml"]
             }
             resources {
                 cpu    = 500
