@@ -1,7 +1,7 @@
 # us-playground-scripts
 ## Set-up
 
-There should be only one bootstrap Consul instance so we need 1 bootstrap VM and one or more server instances. In order to not make each other to create and join the same cluster we will develop in isolated networks (VPCs). 
+There should be only one bootstrap Consul instance so we need 1 bootstrap VM and one or more server instances. In order to not make each other to create and join the same cluster we will develop in isolated networks (VPCs).
 
 1. Set up private VPC
 2. Add firewall rule that enables following ports: tcp:8500; tcp:9990; tcp:4646; tcp:4140
@@ -73,10 +73,10 @@ wget "${REPO}/${BRANCH}/u-service-app2-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uui
 * :white_check_mark: Registration in Service Discovery
 * Rest Endpoints
   * :white_check_mark: Main (/) - default entrypoint displaying Hello World
-  * :white_check_mark: Healthcheck (/my-health-check) - healthcheck for service discovery and or gateway 
+  * :white_check_mark: Healthcheck (/my-health-check) - healthcheck for service discovery and or gateway
   * :white_check_mark: Inspect (/api/inspect) - displaying app instance info
-    * :white_check_mark: \?delay - sleep value in ms 
-  
+    * :white_check_mark: \?delay - sleep value in ms
+
 ### :white_check_mark: Api Gateway
 
 #### :white_check_mark: Linkerd
@@ -93,13 +93,13 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" 
 ```
 * :white_check_mark: Dashboard: http://35.234.127.135:9990/?router=http
 * :white_check_mark: HelloWorld app:
-  * :white_check_mark: Root: http://35.234.127.135:4140/api/v1/u-service-app-1/
-  * :white_check_mark: HC: http://35.234.127.135:4140/api/v1/u-service-app-1/my-health-check/
-  * :white_check_mark: Inspect: http://35.234.127.135:4140/api/v1/u-service-app-1/api/inspect
+  * :white_check_mark: Root: http://35.234.127.135:4140/external_api_one/
+  * :white_check_mark: HC: http://35.234.127.135:4140/external_api_one/my-health-check/
+  * :white_check_mark: Inspect: http://35.234.127.135:4140/external_api_one/api/inspect
 * :white_check_mark: Another app:
-  * :white_check_mark: Root: http://35.234.127.135:4140/api/v1/u-service-app-2/
-  * :white_check_mark: HC: http://35.234.127.135:4140/api/v1/u-service-app-2/my-health-check/
-  * :white_check_mark: Inspect: http://35.234.127.135:4140/api/v1/u-service-app-2/api/inspect
+  * :white_check_mark: Root: http://35.234.127.135:4140/external_api_two/
+  * :white_check_mark: HC: http://35.234.127.135:4140/external_api_two/my-health-check/
+  * :white_check_mark: Inspect: http://35.234.127.135:4140/external_api_two/api/inspect
 
 #### :white_check_mark: Spring Gateway
 
@@ -133,4 +133,3 @@ wget "${REPO}/${BRANCH}/spring-gateway-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uui
 
 * :black_square_button: Load tests
 * :black_square_button: Chaos tests
-
