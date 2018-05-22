@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -42,42 +42,66 @@ public class MicroserviceConsul1Application {
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/api/inspect")
-    public String apiInspect(@RequestParam(value = "delay", required = false) Integer delay) {
+    @RequestMapping(value = "/api/inspect", method= RequestMethod.GET )
+    public String apiInspectCsv(HttpServletResponse response,
+                                                  @RequestParam(value = "delay", required = false) Integer delay,
+                                                  @RequestParam(value = "format", required = false) String format) throws IOException {
 
+        if (format != null && format.equals("Fcsv")) {
+            response.addHeader("Content-disposition", "attachment;filename=myfilename.csv");
+            response.setContentType("txt/plain");
+            response.getOutputStream().write(getHostInfo("csv", delay).getBytes());
+            response.getOutputStream().flush();
+        }
+
+        return getHostInfo(format, delay);
+    }
+
+    private String getHostInfo(String format, Integer delay) {
         InetAddress ip = null;
         String hostname = null;
         StringBuffer info =  new StringBuffer();
+    try{
 
-        try {
-            if(delay != null){
-                LOGGER.info("Sleep for : " +  delay + "ms");
-                info.append("Your app was call with delay<b> " + delay + "ms</b></br>");
+        callThreadSleep(delay, info);
 
-                Thread.sleep( delay );
-            }
+        ip = InetAddress.getLocalHost() ;
+        hostname = ip.getHostName();
 
-            ip = InetAddress.getLocalHost();
-            hostname = ip.getHostName();
-
-            LOGGER.info("Application name  : " +  name);
-            LOGGER.info("Your current IP address : " + ip);
-            LOGGER.info("Your current Hostname : " + hostname);
-            LOGGER.info("Your current Local server port : " +  environment.getProperty("local.server.port"));
-
-        } catch (InterruptedException e) {
-            LOGGER.error("Logger InterruptedException " + e);
         } catch (UnknownHostException e) {
             LOGGER.error("Logger UnknownHostException " + e);
+        } catch (InterruptedException e) {
+              LOGGER.error("Logger InterruptedException " + e);
         }
 
-        return info + "Application name  : <b>" +  name +
-                "</b><br/>Your current IP address : <b>" + ip +
-                "</b><br/> Your current Hostname : <b>" + hostname +
-                "</b><br/>Your current Local server port  : <b>" +  environment.getProperty("local.server.port") + "</b>";
+        String returnedString = getStringOfParamethers(format, ip, hostname, info);
+        if (returnedString != null) return returnedString;
+        return "Please enter paramether format csv of html and delay = X ms";
+    }
+
+    private String getStringOfParamethers(String format, InetAddress ip, String hostname, StringBuffer info) {
+
+        if (format != null && format.equals("html")) {
+            return info + "Application name  : <b>" +  name +
+                    "</b><br/>Your current IP address : <b>" + ip +
+                    "</b><br/> Your current Hostname : <b>" + hostname +
+                    "</b><br/>Your current Local server port  : <b>" +  environment.getProperty("local.server.port") + "</b>";
+
+        }else if (format != null && format.equals("csv")) {
+            return " \"Application name\":\"" +  name + "\", \"Your current IP address\":\"" + ip + "\",\"Your current Hostname\":\"" + hostname + "\", \"Your current Local server port\":\"" +  environment.getProperty("local.server.port")  +"\"";
+        }
+        return null;
+    }
+
+    private void callThreadSleep(Integer delay, StringBuffer info) throws InterruptedException {
+        if(delay != null){
+            LOGGER.info("Sleep for : " +  delay + "ms");
+            info.append("Your app was call with delay<b> " + delay + "ms</b></br>");
+
+            Thread.sleep( delay );
+        }
     }
 
     public static void main(String[] args) {
         SpringApplication.run(com.gft.first.microservice_consul_1.MicroserviceConsul1Application.class, args);
-    }
-}
+    }}
