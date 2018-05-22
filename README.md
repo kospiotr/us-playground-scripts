@@ -121,6 +121,7 @@ wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O
   * :black_square_button: Root:
   * :black_square_button: Inspect:
 
+### :black_square_button: Load Balancing
 ### :black_square_button: Scale
 ### :black_square_button: Version deployment
 ### :black_square_button: Testing
