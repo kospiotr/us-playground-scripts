@@ -2,7 +2,7 @@ server:
   port: ${NOMAD_PORT_http}
 spring:
   application:
-    name: u-service-hello-app
+    name: u-service-app-21
   cloud:
     consul:
       host: localhost
