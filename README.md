@@ -123,6 +123,10 @@ wget "${REPO}/${BRANCH}/spring-gateway-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uui
   * :white_check_mark: Inspect: http://35.234.127.135:4141/external_api_two/api/inspect
 
 ### :white_check_mark: Load Balancing
+
+* Linkerd: `watch curl http://35.234.127.135:4140/api/v1/u-service-app-1/api/inspect?nocache`
+* Spring Gateway: `watch curl http://35.234.127.135:4141/external_api_two/api/inspect?nocache`
+
 ### :black_square_button: Scale
 ### :black_square_button: Version deployment
 ### :black_square_button: Testing
