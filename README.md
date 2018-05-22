@@ -12,7 +12,7 @@ Running for bootstrap VM:
 ```
 export BRANCH=master
 export REPO=raw.githubusercontent.com/kospiotr/us-playground-scripts
-sudo su -c "bash <(wget -qO- "https://${REPO}/${BRANCH}/startup-bootstrap.sh?nocache") $BRANCH > /var/log/startup.log" root
+sudo su -c "bash <(wget -qO- "https://${REPO}/${BRANCH}/startup-bootstrap.sh?$(uuidgen)") $BRANCH > /var/log/startup.log" root
 ```
 
 Running for server VM:
@@ -20,7 +20,7 @@ Running for server VM:
 ```
 export BRANCH=master
 export REPO=raw.githubusercontent.com/kospiotr/us-playground-scripts
-sudo su -c "bash <(wget -qO- "https://${REPO}/${BRANCH}/startup-instance.sh?nocache") $BRANCH > /var/log/startup.log" root
+sudo su -c "bash <(wget -qO- "https://${REPO}/${BRANCH}/startup-instance.sh?$(uuidgen)") $BRANCH > /var/log/startup.log" root
 ```
 
 ## Demo
@@ -58,7 +58,7 @@ Scheduler for services
 export BRANCH=master
 export ENVIRONMENT=dev
 export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
-wget "${REPO}/${BRANCH}/u-service-app1-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-app1-ocd.job.nomad && nomad job run u-service-app1-ocd.job.nomad
+wget "${REPO}/${BRANCH}/u-service-app1-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O u-service-app1-ocd.job.nomad && nomad job run u-service-app1-ocd.job.nomad
 ```
 
 * :white_check_mark: Deploy 2 micro service:
@@ -67,7 +67,7 @@ wget "${REPO}/${BRANCH}/u-service-app1-ocd/${ENVIRONMENT}/deploy.job.nomad?nocac
 export BRANCH=master
 export ENVIRONMENT=dev
 export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
-wget "${REPO}/${BRANCH}/u-service-app2-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O u-service-app2-ocd.job.nomad && nomad job run u-service-app2-ocd.job.nomad
+wget "${REPO}/${BRANCH}/u-service-app2-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O u-service-app2-ocd.job.nomad && nomad job run u-service-app2-ocd.job.nomad
 ```
 
 * :white_check_mark: Registration in Service Discovery
@@ -89,7 +89,7 @@ export BRANCH=master
 export ENVIRONMENT=dev
 export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 
-wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O linkerd.job.nomad && nomad job run linkerd.job.nomad
+wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O linkerd.job.nomad && nomad job run linkerd.job.nomad
 ```
 * :white_check_mark: Dashboard: http://35.234.127.135:9990/?router=http
 * :black_square_button: HelloWorld app:
@@ -110,7 +110,7 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O 
 export BRANCH=master
 export ENVIRONMENT=dev
 export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
-wget "${REPO}/${BRANCH}/spring-gateway-ocd/${ENVIRONMENT}/deploy.job.nomad?nocache" -O spring-gateway.job.nomad && nomad job run spring-gateway.job.nomad
+wget "${REPO}/${BRANCH}/spring-gateway-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O spring-gateway.job.nomad && nomad job run spring-gateway.job.nomad
 ```
 
 * :black_square_button: Dashboard:
