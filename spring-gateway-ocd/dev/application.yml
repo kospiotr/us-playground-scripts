@@ -1,3 +1,5 @@
+server:
+  port: ${NOMAD_PORT_router}
 spring:
   application:
     name: spring-gateway
@@ -33,5 +35,3 @@ management:
     web:
       exposure:
         include: "*"
-server:
-  port: ${NOMAD_PORT_router}
