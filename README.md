@@ -25,17 +25,9 @@ sudo su -c "bash <(wget -qO- "https://${REPO}/${BRANCH}/startup-instance.sh?noca
 
 ## Demo
 
-### :white_check_mark: Infrastructure
-
-Boxes, Network, Firewall, Ports, Internal / External IPs
-
 ### :white_check_mark: Architecture
 
 Load Balancer -> Api G/W -> Service Discovery -> Micro Services
-
-### :black_square_button: Load balancer
-
-Out of the scope
 
 ### :white_check_mark: Consul
 
@@ -129,6 +121,7 @@ wget "${REPO}/${BRANCH}/u-service-hello-ocd/${ENVIRONMENT}/job.nomad?nocache" -O
   * :black_square_button: Root:
   * :black_square_button: Inspect:
 
+### :black_square_button: Load Balancing
 ### :black_square_button: Scale
 ### :black_square_button: Version deployment
 ### :black_square_button: Testing
