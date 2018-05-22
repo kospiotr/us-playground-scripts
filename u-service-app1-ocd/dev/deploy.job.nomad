@@ -2,7 +2,7 @@ job "u-service-app1-service" {
     datacenters = ["dc1"]
     type = "service"
     group "u-service-app1-group" {
-        count = 10
+        count = 3
         task "u-service-app1-task" {
             driver = "java"
             artifact {
