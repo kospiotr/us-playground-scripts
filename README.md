@@ -103,8 +103,8 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" 
 
 #### :black_square_button: Spring Gateway
 
-* :black_square_button: Code: https://github.com/kospiotr/us-playground-scripts/tree/master/spring-gateway-ocd
-* :black_square_button: Deploy:
+* :white_check_mark: Code: https://github.com/kospiotr/us-playground-scripts/tree/master/spring-gateway-ocd
+* :white_check_mark: Deploy:
 
 ```
 export BRANCH=master
@@ -113,7 +113,6 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/spring-gateway-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O spring-gateway.job.nomad && nomad job run spring-gateway.job.nomad
 ```
 
-* :black_square_button: Dashboard:
 * :black_square_button: HelloWorld app:
   * :black_square_button: Root:
   * :black_square_button: Inspect:
@@ -121,7 +120,7 @@ wget "${REPO}/${BRANCH}/spring-gateway-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uui
   * :black_square_button: Root:
   * :black_square_button: Inspect:
 
-### :black_square_button: Load Balancing
+### :white_check_mark: Load Balancing
 ### :black_square_button: Scale
 ### :black_square_button: Version deployment
 ### :black_square_button: Testing
