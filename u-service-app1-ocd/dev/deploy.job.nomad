@@ -13,7 +13,7 @@ job "u-service-app1-service" {
             }
             config {
                 jar_path    = "local/microservice_using_consul.jar"
-                jvm_options = ["-Xmx256m", "-Xms128m", "-Dspring.application.name=u-service-app-1", "-Dspring.config.location=file:local/application.yml"]
+                jvm_options = ["-Xmx256m", "-Xms128m", "-Dspring.application.name=u-service-app-1", "-Dspring.config.location=file:local/application.yaml"]
             }
             resources {
                 cpu    = 500
