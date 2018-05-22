@@ -13,7 +13,7 @@ job "spring-gateway" {
             }
             config { # (3)
                 jar_path    = "local/spring-gateway.jar"
-                jvm_options = ["-Xmx512m", "-Xms512m","-Dspring.config.location=file:local/application.yml"]
+                jvm_options = ["-Xmx512m", "-Xms512m","-Dspring.config.location=file:./local/application.yml"]
             }
             resources { # (4)
                 cpu    = 300
