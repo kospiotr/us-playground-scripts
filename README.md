@@ -92,11 +92,11 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O linkerd.job.nomad && nomad job run linkerd.job.nomad
 ```
 * :white_check_mark: Dashboard: http://35.234.127.135:9990/?router=http
-* :white_check_mark: HelloWorld app:
+* :white_check_mark: external_api_one app:
   * :white_check_mark: Root: http://35.234.127.135:4140/external_api_one/
   * :white_check_mark: HC: http://35.234.127.135:4140/external_api_one/my-health-check/
   * :white_check_mark: Inspect: http://35.234.127.135:4140/external_api_one/api/inspect
-* :white_check_mark: Another app:
+* :white_check_mark: external_api_two app:
   * :white_check_mark: Root: http://35.234.127.135:4140/external_api_two/
   * :white_check_mark: HC: http://35.234.127.135:4140/external_api_two/my-health-check/
   * :white_check_mark: Inspect: http://35.234.127.135:4140/external_api_two/api/inspect
