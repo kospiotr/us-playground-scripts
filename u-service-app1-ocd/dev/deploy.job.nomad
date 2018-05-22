@@ -9,11 +9,11 @@ job "u-service-app1-service" {
               source = "https://github.com/kospiotr/us-playground-scripts/releases/download/0.0.0-SNAPSHOT/microservice_using_consul.jar"
             }
             artifact {
-              source = "https://raw.githubusercontent.com/kospiotr/us-playground-scripts/master/u-service-app1-ocd/dev/application.yaml"
+              source = "https://raw.githubusercontent.com/kospiotr/us-playground-scripts/master/u-service-app1-ocd/dev/application.yml"
             }
             config {
                 jar_path    = "local/microservice_using_consul.jar"
-                jvm_options = ["-Xmx256m", "-Xms128m", "-Dspring.config.location=file:local/application.yaml"]
+                jvm_options = ["-Xmx256m", "-Xms128m", "-Dspring.config.location=file:local/application.yml"]
             }
             resources {
                 cpu    = 500
