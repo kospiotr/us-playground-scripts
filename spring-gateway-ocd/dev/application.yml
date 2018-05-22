@@ -34,4 +34,4 @@ management:
       exposure:
         include: "*"
 server:
-  port: ${NOMAD_HOST_PORT_router:8080}
+  port: ${NOMAD_PORT_router:8080}
