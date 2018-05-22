@@ -1,5 +1,5 @@
 server:
-  port: 8091
+  port: ${NOMAD_PORT_http}
 spring:
   application:
     name: u-service-hello-app
