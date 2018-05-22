@@ -1,0 +1,15 @@
+server:
+  port: ${NOMAD_PORT_http}
+spring:
+  application:
+    name: u-service-app-1
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        format: YAML
+      discovery:
+        instanceId: ${spring.application.name}:${NOMAD_HOST_PORT_http}:${NOMAD_PORT_http}
+        healthCheckPath: /my-health-check
+        healthCheckInterval: 20s
