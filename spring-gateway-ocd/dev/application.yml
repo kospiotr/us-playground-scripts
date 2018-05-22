@@ -20,12 +20,12 @@ spring:
           uri: lb://u-service-app-1
           predicates:
           - Path:
-              pattern=/external_api_one/**
+              pattern: /external_api_one/**
         - id: external_api_two
           uri: lb://u-service-app-2
           predicates:
           - Path:
-              pattern=/external_api_two/**
+              pattern: /external_api_two/**
       discovery:
         locator:
           enabled: true
