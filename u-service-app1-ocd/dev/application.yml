@@ -10,6 +10,6 @@ spring:
       config:
         format: YAML
       discovery:
-        instanceId: ${spring.application.name}
+        instanceId: ${spring.application.name}:${NOMAD_PORT_http}
         healthCheckPath: /my-health-check
         healthCheckInterval: 20s
