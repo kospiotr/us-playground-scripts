@@ -24,10 +24,6 @@ job "spring-gateway" {
                     }
 		}
             }
-            service { # (6)
-                name = "spring-gateway-service"
-                port = "router"
-            }
         }
         restart {
             attempts = 1
