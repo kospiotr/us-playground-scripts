@@ -77,7 +77,7 @@ wget "${REPO}/${BRANCH}/u-service-app2-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uui
   * :white_check_mark: Inspect (/api/inspect) - displaying app instance info
     * :white_check_mark: \?delay - sleep value in ms 
   
-### :black_square_button: Api Gateway
+### :white_check_mark: Api Gateway
 
 #### :white_check_mark: Linkerd
 
