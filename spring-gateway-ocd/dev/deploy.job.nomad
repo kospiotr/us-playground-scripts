@@ -18,9 +18,11 @@ job "spring-gateway" {
             resources { # (4)
                 cpu    = 1000
                 memory = 1000
-                port "router" {
-                	static = 4141
-                }
+		network {
+                    port "router" {
+                        static = 4141
+                    }
+		}
             }
             service { # (6)
                 name = "spring-gateway-service"
