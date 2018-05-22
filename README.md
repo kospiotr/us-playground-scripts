@@ -101,7 +101,7 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" 
   * :white_check_mark: HC: http://35.234.127.135:4140/api/v1/u-service-app-2/my-health-check/
   * :white_check_mark: Inspect: http://35.234.127.135:4140/api/v1/u-service-app-2/api/inspect
 
-#### :black_square_button: Spring Gateway
+#### :white_check_mark: Spring Gateway
 
 * :white_check_mark: Code: https://github.com/kospiotr/us-playground-scripts/tree/master/spring-gateway-ocd
 * :white_check_mark: Deploy:
