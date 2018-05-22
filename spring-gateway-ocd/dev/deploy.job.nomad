@@ -16,8 +16,8 @@ job "spring-gateway" {
                 jvm_options = ["-Xmx512m", "-Xms512m","-Dspring.config.location=file:local/application.yml", "-Dserver.port=${NOMAD_PORT_router}"]
             }
             resources { # (4)
-                cpu    = 1000
-                memory = 1000
+                cpu    = 300
+                memory = 600
 		network {
                     port "router" {
                         static = 4141
