@@ -20,10 +20,14 @@ spring:
           uri: lb://u-service-app-1
           predicates:
             - Path=/external_api_one/**
+          filters:
+            - RewritePath=/external_api_one/(?<segment>.*), /$\{segment}
         - id: external_api_two
           uri: lb://u-service-app-2
           predicates:
             - Path=/external_api_two/**
+          filters:
+            - RewritePath=/external_api_one/(?<segment>.*), /$\{segment}
       discovery:
         locator:
           enabled: true
