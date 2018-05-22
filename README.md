@@ -113,12 +113,14 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/spring-gateway-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O spring-gateway.job.nomad && nomad job run spring-gateway.job.nomad
 ```
 
-* :black_square_button: HelloWorld app:
-  * :black_square_button: Root:
-  * :black_square_button: Inspect:
-* :black_square_button: Another app:
-  * :black_square_button: Root:
-  * :black_square_button: Inspect:
+* :white_check_mark: external_api_one app:
+  * :white_check_mark: Root: http://35.234.127.135:4141/external_api_one/
+  * :white_check_mark: HC: http://35.234.127.135:4141/external_api_one/my-health-check/
+  * :white_check_mark: Inspect: http://35.234.127.135:4141/external_api_one/api/inspect
+* :white_check_mark: external_api_two app:
+  * :white_check_mark: Root: http://35.234.127.135:4141/external_api_two/
+  * :white_check_mark: HC: http://35.234.127.135:4141/external_api_two/my-health-check/
+  * :white_check_mark: Inspect: http://35.234.127.135:4141/external_api_two/api/inspect
 
 ### :white_check_mark: Load Balancing
 ### :black_square_button: Scale
