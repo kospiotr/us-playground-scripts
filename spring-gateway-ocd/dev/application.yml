@@ -11,7 +11,7 @@ spring:
         enabled: true
         format: key_value
       discovery:
-        instanceId: ${spring.application.name}:${NOMAD_HOST_PORT_router}:${NOMAD_PORT_router}
+        instanceId: ${spring.application.name}
         healthCheckPath: /health
         healthCheckInterval: 20s
     gateway:
