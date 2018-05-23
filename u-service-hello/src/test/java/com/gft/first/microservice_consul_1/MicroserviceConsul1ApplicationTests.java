@@ -22,36 +22,53 @@ import static org.assertj.core.api.Assertions.assertThat;
 @WebAppConfiguration
 public class MicroserviceConsul1ApplicationTests {
 
-	@Autowired
-	private WebApplicationContext webAppContext;
+    @Autowired
+    private WebApplicationContext webAppContext;
 
-	private MockMvc mockMvc;
+    private MockMvc mockMvc;
 
-	@Before
-	public void setup() {
-		this.mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
-	}
+    @Before
+    public void setup() {
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
+    }
 
-	@Test
-	public void testHelloWorldEndpoint() throws Exception {
-		MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.get("/")).andReturn();
-		MockHttpServletResponse response = result.getResponse();
+    @Test
+    public void testHelloWorldEndpoint() throws Exception {
+        MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.get("/")).andReturn();
+        MockHttpServletResponse response = result.getResponse();
 
-		assertThat(response.getContentAsString()).contains("Hello");
-	}
+        assertThat(response.getContentAsString()).contains("Hello");
+    }
 
-	@Test
-	public void getHtmlValueFromContrller() throws Exception {
-		MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.get("/api/inspect?format=html")).andReturn();
-		MockHttpServletResponse response = result.getResponse();
+    @Test
+    public void getHtmlValueFromContrller() throws Exception {
+        MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.get("/api/inspect?format=html")).andReturn();
+        MockHttpServletResponse response = result.getResponse();
 
-		assertThat(response.getContentAsString()).contains("</b><br/>Your current IP address : <b>");
-	}
-	@Test
-	public void getCsvValueFromContrller() throws Exception {
-		MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.get("/api/inspect?format=csv")).andReturn();
-		MockHttpServletResponse response = result.getResponse();
+        assertThat(response.getContentAsString()).contains("</b><br/>Your current IP address : <b>");
+    }
 
-		assertThat(response.getContentAsString()).contains( "Application name\":\"u-service-hello-app", "Your current IP address\"");
-	}
+    @Test
+    public void getCsvValueFromContrller() throws Exception {
+        MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.get("/api/inspect?format=csv")).andReturn();
+        MockHttpServletResponse response = result.getResponse();
+
+        assertThat(response.getContentAsString()).contains("Application name\":\"u-service-hello-app", "Your current IP address\"");
+    }
+
+    @Test
+    public void getDefaultHtmlValueFromContrller() throws Exception {
+        MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.get("/api/inspect")).andReturn();
+        MockHttpServletResponse response = result.getResponse();
+
+        assertThat(response.getContentAsString()).contains("</b><br/>Your current IP address : <b>");
+    }
+
+    @Test
+    public void getDelayInfoValueFromContrller() throws Exception {
+        MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.get("/api/inspect?delay=3000")).andReturn();
+        MockHttpServletResponse response = result.getResponse();
+
+        assertThat(response.getContentAsString()).contains("Your app was call with delay");
+    }
 }
