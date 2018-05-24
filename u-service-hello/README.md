@@ -1,3 +1,11 @@
+## Endpoints
+
+* GET / - default entrypoint displaying Hello World
+* GET /my-health-check - healthcheck for service discovery and or gateway
+* GET /api/inspect - displaying app instance info
+  * delay - [optional, query] sleep value in ms
+  * format - [optional, query, default: html, values: html, csv] output format 
+
 ## Build
 
 `mvn clean install`
@@ -9,7 +17,7 @@ cd target
 java -jar microservice_consul_1-0.0.1-SNAPSHOT.jar
 ```
 
-Release
+## Release
 
 ```
 #INIT
