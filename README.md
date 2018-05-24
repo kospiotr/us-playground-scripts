@@ -116,6 +116,9 @@ wget "${REPO}/${BRANCH}/spring-gateway-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uui
   * HC: http://35.234.127.135:4141/external_api_one/my-health-check/
   * Inspect: http://35.234.127.135:4141/external_api_one/api/inspect
 
+
+<p align="center"><img src="https://raw.githubusercontent.com/kospiotr/us-playground-scripts/master/03-API-GW.png"/></p>
+
 ### Routing
 
 * Deploy 2 micro service:
