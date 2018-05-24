@@ -76,6 +76,8 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/u-service-app1-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O u-service-app1-ocd.job.nomad && nomad job run u-service-app1-ocd.job.nomad
 ```
 
+<p align="center"><img src="https://raw.githubusercontent.com/kospiotr/us-playground-scripts/master/02-First app.png"/></p>
+
 ### Api Gateway
 
 #### Linkerd
@@ -96,9 +98,6 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" 
   * Root: http://35.234.127.135:4140/external_api_one/
   * HC: http://35.234.127.135:4140/external_api_one/my-health-check/
   * Inspect: http://35.234.127.135:4140/external_api_one/api/inspect
-
-
-<p align="center"><img src="https://raw.githubusercontent.com/kospiotr/us-playground-scripts/master/02-First app.png"/></p>
 
 #### Spring Gateway
 
