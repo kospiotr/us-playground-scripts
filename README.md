@@ -51,13 +51,19 @@ Scheduler for services
 
 ### Micro Services
 
-* Sample App walkthrough (https://github.com/kospiotr/us-playground-scripts/tree/master/u-service-hello)
-* Registration in Service Discovery
-* Rest Endpoints
-  * Main (/) - default entrypoint displaying Hello World
-  * Healthcheck (/my-health-check) - healthcheck for service discovery and or gateway
-  * Inspect (/api/inspect) - displaying app instance info
-    * \?delay - sleep value in ms
+Code (https://github.com/kospiotr/us-playground-scripts/tree/master/u-service-hello)
+
+#### Features
+
+* Accepts application name as argument
+* Automatic registration in Consul (Service Discovery) 
+
+#### Rest Endpoints
+* GET `/` - default entrypoint displaying Hello World
+* GET `/my-health-check` - healthcheck for service discovery and or gateway
+* GET `/api/inspect` - displaying app instance info
+  * `delay` - [optional, query] sleep value in ms
+  * `format` - [optional, query, default: html, values: html, csv] output format 
     
 * Deploy 1 micro service:
 
