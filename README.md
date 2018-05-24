@@ -98,6 +98,8 @@ wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" 
   * Inspect: http://35.234.127.135:4140/external_api_one/api/inspect
 
 
+<p align="center"><img src="https://raw.githubusercontent.com/kospiotr/us-playground-scripts/master/02-First app.png"/></p>
+
 #### Spring Gateway
 
 * Code: https://github.com/kospiotr/us-playground-scripts/tree/master/spring-gateway-ocd
