@@ -1,4 +1,4 @@
-""# us-playground-scripts
+# us-playground-scripts
 ## Set-up
 
 There should be only one bootstrap Consul instance so we need 1 bootstrap VM and one or more server instances. In order to not make each other to create and join the same cluster we will develop in isolated networks (VPCs).
