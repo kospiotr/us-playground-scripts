@@ -1,8 +1,8 @@
 ## Endpoints
 
-* GET / - default entrypoint displaying Hello World
-* GET /my-health-check - healthcheck for service discovery and or gateway
-* GET /api/inspect - displaying app instance info
+* GET `/` - default entrypoint displaying Hello World
+* GET `/my-health-check` - healthcheck for service discovery and or gateway
+* GET `/api/inspect` - displaying app instance info
   * delay - [optional, query] sleep value in ms
   * format - [optional, query, default: html, values: html, csv] output format 
 
