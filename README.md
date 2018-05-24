@@ -162,3 +162,5 @@ wget "${REPO}/${BRANCH}/u-service-app1-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uui
 ```
   * Observe Load Balancing: http://35.234.127.135:4141/external_api_one/api/inspect
   * Hit Spring Gateway with load again
+
+<p align="center"><img src="https://raw.githubusercontent.com/kospiotr/us-playground-scripts/master/04-Scale and LB.png"/></p>
