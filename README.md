@@ -52,6 +52,13 @@ Scheduler for services
 ### :white_check_mark: Micro Services
 
 * :white_check_mark: Sample App walkthrough (https://github.com/kospiotr/us-playground-scripts/tree/master/u-service-hello)
+* :white_check_mark: Registration in Service Discovery
+* Rest Endpoints
+  * :white_check_mark: Main (/) - default entrypoint displaying Hello World
+  * :white_check_mark: Healthcheck (/my-health-check) - healthcheck for service discovery and or gateway
+  * :white_check_mark: Inspect (/api/inspect) - displaying app instance info
+    * :white_check_mark: \?delay - sleep value in ms
+    
 * :white_check_mark: Deploy 1 micro service:
 
 ```
@@ -60,22 +67,6 @@ export ENVIRONMENT=dev
 export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/u-service-app1-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O u-service-app1-ocd.job.nomad && nomad job run u-service-app1-ocd.job.nomad
 ```
-
-* :white_check_mark: Deploy 2 micro service:
-
-```
-export BRANCH=master
-export ENVIRONMENT=dev
-export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
-wget "${REPO}/${BRANCH}/u-service-app2-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O u-service-app2-ocd.job.nomad && nomad job run u-service-app2-ocd.job.nomad
-```
-
-* :white_check_mark: Registration in Service Discovery
-* Rest Endpoints
-  * :white_check_mark: Main (/) - default entrypoint displaying Hello World
-  * :white_check_mark: Healthcheck (/my-health-check) - healthcheck for service discovery and or gateway
-  * :white_check_mark: Inspect (/api/inspect) - displaying app instance info
-    * :white_check_mark: \?delay - sleep value in ms
 
 ### :white_check_mark: Api Gateway
 
@@ -91,15 +82,13 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 
 wget "${REPO}/${BRANCH}/linkerd-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O linkerd.job.nomad && nomad job run linkerd.job.nomad
 ```
+
 * :white_check_mark: Dashboard: http://35.234.127.135:9990/?router=http
 * :white_check_mark: external_api_one app:
   * :white_check_mark: Root: http://35.234.127.135:4140/external_api_one/
   * :white_check_mark: HC: http://35.234.127.135:4140/external_api_one/my-health-check/
   * :white_check_mark: Inspect: http://35.234.127.135:4140/external_api_one/api/inspect
-* :white_check_mark: external_api_two app:
-  * :white_check_mark: Root: http://35.234.127.135:4140/external_api_two/
-  * :white_check_mark: HC: http://35.234.127.135:4140/external_api_two/my-health-check/
-  * :white_check_mark: Inspect: http://35.234.127.135:4140/external_api_two/api/inspect
+
 
 #### :white_check_mark: Spring Gateway
 
@@ -117,17 +106,49 @@ wget "${REPO}/${BRANCH}/spring-gateway-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uui
   * :white_check_mark: Root: http://35.234.127.135:4141/external_api_one/
   * :white_check_mark: HC: http://35.234.127.135:4141/external_api_one/my-health-check/
   * :white_check_mark: Inspect: http://35.234.127.135:4141/external_api_one/api/inspect
+
+### Routing
+
+* :white_check_mark: Deploy 2 micro service:
+
+```
+export BRANCH=master
+export ENVIRONMENT=dev
+export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
+wget "${REPO}/${BRANCH}/u-service-app2-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O u-service-app2-ocd.job.nomad && nomad job run u-service-app2-ocd.job.nomad
+```
+
+Linkerd
+* :white_check_mark: external_api_two app:
+  * :white_check_mark: Root: http://35.234.127.135:4140/external_api_two/
+  * :white_check_mark: HC: http://35.234.127.135:4140/external_api_two/my-health-check/
+  * :white_check_mark: Inspect: http://35.234.127.135:4140/external_api_two/api/inspect
+
+Spring Gateway
 * :white_check_mark: external_api_two app:
   * :white_check_mark: Root: http://35.234.127.135:4141/external_api_two/
   * :white_check_mark: HC: http://35.234.127.135:4141/external_api_two/my-health-check/
   * :white_check_mark: Inspect: http://35.234.127.135:4141/external_api_two/api/inspect
 
-### :white_check_mark: Load Balancing
+### :white_check_mark: Scale & Load Balancing
+ 
+* :white_check_mark: Hit Spring Gateway with load
+  * JMeter instructions: https://github.com/kospiotr/us-playground-scripts/tree/master/api-gateway-LT
+  * Enpoint: http://35.234.127.135:4141/external_api_one/api/inspect
+  * Observe characteristics for 1 instance
+* :white_check_mark: Scale app up to 5 instances
+  * Edit: https://github.com/kospiotr/us-playground-scripts/edit/master/u-service-app1-ocd/dev/deploy.job.nomad
+  * Deploy again:
 
-* :white_check_mark: Linkerd: `watch curl http://35.234.127.135:4140/api/v1/u-service-app-1/api/inspect?nocache`
-* :white_check_mark: Spring Gateway: `watch curl http://35.234.127.135:4141/external_api_two/api/inspect?nocache`
-
-### :black_square_button: Scale
+```
+export BRANCH=master
+export ENVIRONMENT=dev
+export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
+wget "${REPO}/${BRANCH}/u-service-app1-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O u-service-app1-ocd.job.nomad && nomad job run u-service-app1-ocd.job.nomad
+```
+  * Observe Load Balancing: http://35.234.127.135:4141/external_api_one/api/inspect
+  * Hit Spring Gateway with load again
+  
 ### :black_square_button: Version deployment
 ### :black_square_button: Testing
 
