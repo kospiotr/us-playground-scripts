@@ -118,20 +118,22 @@ export REPO=https://raw.githubusercontent.com/kospiotr/us-playground-scripts
 wget "${REPO}/${BRANCH}/u-service-app2-ocd/${ENVIRONMENT}/deploy.job.nomad?$(uuidgen)" -O u-service-app2-ocd.job.nomad && nomad job run u-service-app2-ocd.job.nomad
 ```
 
-Linkerd
+#### Linkerd
 * external_api_two app:
   * Root: http://35.234.127.135:4140/external_api_two/
   * HC: http://35.234.127.135:4140/external_api_two/my-health-check/
   * Inspect: http://35.234.127.135:4140/external_api_two/api/inspect
 
-Spring Gateway
+#### Spring Gateway
 * external_api_two app:
   * Root: http://35.234.127.135:4141/external_api_two/
   * HC: http://35.234.127.135:4141/external_api_two/my-health-check/
   * Inspect: http://35.234.127.135:4141/external_api_two/api/inspect
 
 ### Scale & Load Balancing
- 
+
+Will be using application_one on the Spring Gateway
+
 * Hit Spring Gateway with load
   * JMeter instructions: https://github.com/kospiotr/us-playground-scripts/tree/master/api-gateway-LT
   * Enpoint: http://35.234.127.135:4141/external_api_one/api/inspect
