@@ -49,7 +49,9 @@ Scheduler for services
 * Sample CLI: `nomad server members`
 * Clean dead jobs: `curl -X PUT http://35.234.127.135:4646/v1/system/gc`
 
+<center>
 ![https://raw.githubusercontent.com/kospiotr/us-playground-scripts/master/01-Initial%20setup.png](https://raw.githubusercontent.com/kospiotr/us-playground-scripts/master/01-Initial%20setup.png)
+</center>
 
 ### Micro Services
 
