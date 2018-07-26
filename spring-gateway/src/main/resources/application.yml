@@ -33,5 +33,10 @@ management:
     web:
       exposure:
         include: "*"
+  metrics:
+    export:
+      slf4j:
+        enabled: true
+        period: 10
 server:
   port: ${NOMAD_HOST_PORT_http:8080}
